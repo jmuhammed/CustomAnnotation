@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package com.prokarma.test;
+
+import org.testng.annotations.Test;
+import com.prokarma.custom.*;
+
+/**
+ * @author PK_Chennai_PC
+ *
+ */
+public class SummaryTestClass {
+	
+	
+@Test	
+@UserStory(name="US123908")
+public void testSummaryDetails(){
+	
+	
+}
+
+@Test
+@UserStory(name="US125467")
+public void testSummaryList(){
+	
+}
+
+}
