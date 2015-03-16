@@ -13,7 +13,7 @@ public class AnnotationParsing {
                     .getClassLoader()
                     .loadClass(("com.prokarma.test.SummaryTestClass"))
                     .getMethods()) {
-                // checks if MethodInfo annotation is present for the method
+                // checks if UserStory annotation is present for the method
                 if (method.isAnnotationPresent(com.prokarma.custom.UserStory.class)) {
                     try {
                         // iterates all the annotations available in the method
