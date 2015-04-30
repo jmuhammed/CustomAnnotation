@@ -1305,5 +1305,5 @@ $("document").ready(function() {
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G(), trp = ea
+    }), G()
 });
