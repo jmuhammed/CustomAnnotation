@@ -1,4 +1,4 @@
-var trp;
+var ea;
 $("document").ready(function() {
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
@@ -680,7 +680,7 @@ $("document").ready(function() {
             $(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey")
         }, 0) : ($(".searchLocation").val(Uo), Ta = !1) : I()) : "" == Io || Ta || Pa ? "" != ja ? Pa ? $(".mainWrapper").hasClass("ie9") ? ($(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey"), Uo = "") : ($(".searchLocation").val(""), $(".searchLocation").css("color", "grey"), Uo = "", Ta = !1) : I() : $(".mainWrapper").hasClass("ie9") ? ($(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey")) : ($(".searchLocation").val(""), $(".searchLocation").css("color", "grey"), Uo = "", Ta = !1) : ($(".searchLocation").val(Io), $(".searchLocation").css("color", "black"), Ta = !1)
     }
-    var ea, aa, oa, na, ta, ra, ia, sa, ca, la, ha, da, pa, ga, ma, $a, ua, Ca, va, fa = "",
+    var  aa, oa, na, ta, ra, ia, sa, ca, la, ha, da, pa, ga, ma, $a, ua, Ca, va, fa = "",
         ba = ["bg-mob-breakfast.jpg", "bg-mob-cooking.jpg", "bg-mob-hotelbell.jpg"],
         wa = ["bg-desk-breakfast.jpg", "bg-desk-cooking.jpg", "bg-desk-hotelbell.jpg"],
         ka = ["bg-tab-breakfast.jpg", "bg-tab-cooking.jpg", "bg-tab-hotelbell.jpg"],
