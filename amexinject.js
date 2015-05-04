@@ -259,7 +259,7 @@ $("document").ready(function() {
             icon: e,
             zIndex: 100
         });
-       
+       allmarkers.push(n);
         n.metadata = {
             type: "point",
             id: Xa
@@ -290,7 +290,7 @@ $("document").ready(function() {
         })
    
         
-         allmarkers.push(n);
+         
     }
 
     function D(e) {
