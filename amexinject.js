@@ -757,7 +757,7 @@ $("document").ready(function() {
         ko = "",
         yo = "",
         Lo = "",
-        So = "",
+        window.So = "",
         Do = " ",
         Mo = "",
         Io = "",
