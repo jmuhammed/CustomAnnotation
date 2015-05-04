@@ -1,4 +1,4 @@
-
+var allMarkers = [];
 function init() {
     var something = new google.maps.Map(document.getElementById("mapContainer"));;
     return something;
@@ -257,6 +257,7 @@ $("document").ready(function() {
             icon: e,
             zIndex: 100
         });
+       
         n.metadata = {
             type: "point",
             id: Xa
@@ -285,6 +286,9 @@ $("document").ready(function() {
                 }
             }
         })
+   
+        
+         allmarkers.push(n);
     }
 
     function D(e) {
@@ -311,7 +315,7 @@ $("document").ready(function() {
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        })), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
+        }),allmarkers.push(So)), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
     }
 
     function P(e) {
@@ -412,7 +416,7 @@ $("document").ready(function() {
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        })), $("body").scrollTo($(".mainWrapper"), 500, {
+        }),allmarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
         }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
     }
