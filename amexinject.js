@@ -1,4 +1,5 @@
 var allMarkers = [];
+var fn;
 function init() {
     var something = new google.maps.Map(document.getElementById("mapContainer"));;
     return something;
