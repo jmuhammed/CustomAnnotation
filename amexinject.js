@@ -778,7 +778,7 @@ $("document").ready(function() {
         Uo = "",
         jo = To.indexOf("chrome/"),
         Zo = To.indexOf("android");
-         window.So = "",
+         window.So = "";
     To = To.indexOf("safari/"), $.fn.isOnScreen = function() {
         var e = $("body").scrollTop(),
             a = $(window),
