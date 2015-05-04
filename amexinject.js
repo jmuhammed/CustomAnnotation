@@ -252,7 +252,7 @@ $("document").ready(function() {
             a = contextPath + "/resources/images/markersprite" + (Math.floor(Xa / 10) + 1) + ".png";
         e = "REC000" !== za[Na].recommID ? 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
          
-        window.n = new google.maps.Marker({
+        var n = new google.maps.Marker({
             position: qa[Na],
             animation: google.maps.Animation.DROP,
             map: ea,
@@ -318,7 +318,7 @@ $("document").ready(function() {
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        }),S1=So,allmarkers.push(S1)), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
+        }),allmarkers.push(So)), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
     }
 
     function P(e) {
@@ -419,7 +419,7 @@ $("document").ready(function() {
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        }),S1=So;allmarkers.push(S1)), $("body").scrollTo($(".mainWrapper"), 500, {
+        }),allmarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
         }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
     }
@@ -779,7 +779,7 @@ $("document").ready(function() {
         jo = To.indexOf("chrome/"),
         Zo = To.indexOf("android");
          window.So = "";
-         window.S1;
+    
     To = To.indexOf("safari/"), $.fn.isOnScreen = function() {
         var e = $("body").scrollTop(),
             a = $(window),
