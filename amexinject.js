@@ -1,8 +1,10 @@
-var allMarkers = [];
+
 function init() {
     var something = new google.maps.Map(document.getElementById("mapContainer"));;
     return something;
 }
+
+var allMarkers = [];
 $("document").ready(function() {
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
