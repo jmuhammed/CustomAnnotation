@@ -261,7 +261,7 @@ $("document").ready(function() {
             icon: e,
             zIndex: 100
         });
-       allmarkers.push(markvar.n);
+       allmarkers.push(n);
         n.metadata = {
             type: "point",
             id: Xa
