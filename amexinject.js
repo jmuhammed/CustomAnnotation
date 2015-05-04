@@ -3,9 +3,8 @@ function init() {
     var something = new google.maps.Map(document.getElementById("mapContainer"));;
     return something;
 }
-
 var allMarkers = [];
-var markvar = {};
+
 $("document").ready(function() {
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
@@ -757,7 +756,6 @@ $("document").ready(function() {
         ko = "",
         yo = "",
         Lo = "",
-        window.So = "",
         Do = " ",
         Mo = "",
         Io = "",
@@ -780,6 +778,7 @@ $("document").ready(function() {
         Uo = "",
         jo = To.indexOf("chrome/"),
         Zo = To.indexOf("android");
+         window.So = "",
     To = To.indexOf("safari/"), $.fn.isOnScreen = function() {
         var e = $("body").scrollTop(),
             a = $(window),
