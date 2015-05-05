@@ -4,7 +4,7 @@ function init() {
     return something;
 }
 var allMarkers = [];
-var mgr=new MarkerManager(init());
+
 
 $("document").ready(function() {
     function e(e) {
