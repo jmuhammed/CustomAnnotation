@@ -1,13 +1,11 @@
-
 function init() {
-    var something = new google.maps.Map(document.getElementById("mapContainer"));
-    return something;
+var something = new google.maps.Map(document.getElementById("mapContainer"));
+return something;
 }
-var allMarkers = [];
-var n1;
-var S1;
 
 $("document").ready(function() {
+    "use strict";
+
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
     }
@@ -129,8 +127,7 @@ $("document").ready(function() {
         })
     }
 
-    function d(e) 
-    {
+    function d(e) {
         var a;
         for (a = 0; a < e.length; a++) co.push(e[a].code)
     }
@@ -254,10 +251,7 @@ $("document").ready(function() {
         var e = "",
             a = contextPath + "/resources/images/markersprite" + (Math.floor(Xa / 10) + 1) + ".png";
         e = "REC000" !== za[Na].recommID ? 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
-         
-   
-        
-         var n = new google.maps.Marker({
+        var n = new google.maps.Marker({
             position: qa[Na],
             animation: google.maps.Animation.DROP,
             map: ea,
@@ -265,7 +259,6 @@ $("document").ready(function() {
             icon: e,
             zIndex: 100
         });
-       allmarkers.push(n);
         n.metadata = {
             type: "point",
             id: Xa
@@ -294,9 +287,6 @@ $("document").ready(function() {
                 }
             }
         })
-   
-        
-         
     }
 
     function D(e) {
@@ -323,7 +313,7 @@ $("document").ready(function() {
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        }),allmarkers.push(So)), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
+        })), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
     }
 
     function P(e) {
@@ -424,7 +414,7 @@ $("document").ready(function() {
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        }),alert(So),allmarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
+        })), $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
         }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
     }
@@ -761,6 +751,7 @@ $("document").ready(function() {
         ko = "",
         yo = "",
         Lo = "",
+        So = "",
         Do = " ",
         Mo = "",
         Io = "",
@@ -777,16 +768,12 @@ $("document").ready(function() {
         Fo = -1,
         No = To.indexOf("chrome"),
         zo = "",
-        So = "";
         Ho = "",
         Jo = [38, 40, 9, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 45],
         qo = $(".deskRec").html(),
         Uo = "",
         jo = To.indexOf("chrome/"),
         Zo = To.indexOf("android");
-        
-         
-    
     To = To.indexOf("safari/"), $.fn.isOnScreen = function() {
         var e = $("body").scrollTop(),
             a = $(window),
@@ -1324,5 +1311,5 @@ $("document").ready(function() {
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G(),S1=So;
+    }), G()
 });
