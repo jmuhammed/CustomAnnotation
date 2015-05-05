@@ -1,6 +1,6 @@
 
 function init() {
-    var something = new google.maps.Map(document.getElementById("mapContainer"));;
+    var something = new google.maps.Map(document.getElementById("mapContainer"));
     return something;
 }
 var allMarkers = [];
@@ -424,7 +424,7 @@ $("document").ready(function() {
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        }),allmarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
+        }),alert(So),allmarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
         }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
     }
