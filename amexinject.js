@@ -245,7 +245,7 @@
         var e = "",
             a = contextPath + "/resources/images/markersprite" + (Math.floor(Xa / 10) + 1) + ".png";
         e = "REC000" !== za[Na].recommID ? 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
-        window.n = new google.maps.Marker({
+        window.nMar = new google.maps.Marker({
             position: qa[Na],
             animation: google.maps.Animation.DROP,
             map: ea,
@@ -253,16 +253,16 @@
             icon: e,
             zIndex: 100
         });
-        n.metadata = {
+        nMar.metadata = {
             type: "point",
             id: Xa
-        }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = n, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = n, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(n), google.maps.event.addListener(n, "click", function() {
+        }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = nMar, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = nMar, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(nMar), google.maps.event.addListener(n, "click", function() {
             if (o("rmaction", "click_MapPin"), Fa !== this) {
                 var e, a = "",
-                    n = this.metadata.id,
+                    nMar = this.metadata.id,
                     t = "";
                 if ($(".active").removeClass("active"), $(".suggestion .merchantDetailsContainer").each(function() {
-                        return e = $(this).find(".sno").html(), e == n + 1 ? (a = $(this).closest(".suggestion"), $(this).closest(".suggestion").addClass("active"), t = $(this).closest(".merchantDetailsContainer").attr("id"), !1) : void 0
+                        return e = $(this).find(".sno").html(), e == nMar + 1 ? (a = $(this).closest(".suggestion"), $(this).closest(".suggestion").addClass("active"), t = $(this).closest(".merchantDetailsContainer").attr("id"), !1) : void 0
                     }), "block" != $("#locationDeatailsContainer").css("display") && k(this), "block" != $("#locationDeatailsContainer").css("display") || $(".mainWrapper").hasClass("res_Small")) $("#suggestionList").scrollTo($(".active"), 500);
                 else if ($(".currcat").html() != atmname) {
                     k(this);
