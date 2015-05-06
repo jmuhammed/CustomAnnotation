@@ -1,10 +1,5 @@
-function init() {
-var something = new google.maps.Map(document.getElementById("mapContainer"));
-return something;
-}
 
-$("document").ready(function() {
-    "use strict";
+
 
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
@@ -393,7 +388,7 @@ $("document").ready(function() {
                     position: google.maps.ControlPosition.TOP_RIGHT
                 }
             }, void 0 === ea) {
-            ea = init();
+            ea = new google.maps.Map(document.getElementById("mapContainer"));
             var c = $("#mapContainer");
             Ko(c[0], "mousewheel", A, !0), Ko(c[0], "wheel", A, !0), Ko(c[0], "DOMMouseScroll", A, !0)
         }
@@ -1311,5 +1306,5 @@ $("document").ready(function() {
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G()
-});
+    }), G();
+
