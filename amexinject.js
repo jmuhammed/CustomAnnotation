@@ -1,5 +1,6 @@
 
     var init;
+    var nMarker;
     var allMarkers = [];
 
     function e(e) {
@@ -255,7 +256,8 @@
             icon: e,
             zIndex: 100
         });
-        allMarkers.push(n);
+        nMarker=n;
+        allMarkers.push(nMarker);
         n.metadata = {
             type: "point",
             id: Xa
