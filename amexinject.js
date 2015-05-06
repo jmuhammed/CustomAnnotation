@@ -1,5 +1,5 @@
 
-    var init;
+    var init = new google.maps.Map(document.getElementById("mapContainer"));
    
     var allMarkers = [];
 
