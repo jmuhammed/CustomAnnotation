@@ -1309,4 +1309,4 @@
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G(),X();
+    }), G(),S();
