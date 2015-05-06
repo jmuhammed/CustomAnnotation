@@ -257,7 +257,7 @@ function S() {
     n.metadata = {
         type: "point",
         id: Xa
-    }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = n, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = n, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(n), google.maps.event.addListener(n, "click", function() {
+    }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = n, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = n, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(n),marker = n, google.maps.event.addListener(n, "click", function() {
         if (o("rmaction", "click_MapPin"), Fa !== this) {
             var e, a = "",
                 n = this.metadata.id,
@@ -681,7 +681,7 @@ function X() {
         $(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey")
     }, 0) : ($(".searchLocation").val(Uo), Ta = !1) : I()) : "" == Io || Ta || Pa ? "" != ja ? Pa ? $(".mainWrapper").hasClass("ie9") ? ($(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey"), Uo = "") : ($(".searchLocation").val(""), $(".searchLocation").css("color", "grey"), Uo = "", Ta = !1) : I() : $(".mainWrapper").hasClass("ie9") ? ($(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey")) : ($(".searchLocation").val(""), $(".searchLocation").css("color", "grey"), Uo = "", Ta = !1) : ($(".searchLocation").val(Io), $(".searchLocation").css("color", "black"), Ta = !1)
 }
-var ea, aa, oa, na, ta, ra, ia, sa, ca, la, ha, da, pa, ga, ma, $a, ua, Ca, va, fa = "",
+var ea, aa, oa, na, ta, ra, ia, sa, ca, la, ha, da, pa, ga, ma, $a, ua, Ca, va, fa,marker = "",
     ba = ["bg-mob-breakfast.jpg", "bg-mob-cooking.jpg", "bg-mob-hotelbell.jpg"],
     wa = ["bg-desk-breakfast.jpg", "bg-desk-cooking.jpg", "bg-desk-hotelbell.jpg"],
     ka = ["bg-tab-breakfast.jpg", "bg-tab-cooking.jpg", "bg-tab-hotelbell.jpg"],
