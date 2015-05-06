@@ -1,4 +1,5 @@
    var init =  new google.maps.Map(document.getElementById("mapContainer"));
+   S();
    
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
@@ -1309,4 +1310,4 @@
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G(),S();
+    }), G();
