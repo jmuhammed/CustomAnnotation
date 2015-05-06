@@ -1,5 +1,6 @@
 
-
+    var init= new google.maps.Map(document.getElementById("mapContainer"));
+    var allMarkers = [];
 
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
@@ -254,6 +255,7 @@
             icon: e,
             zIndex: 100
         });
+        allMarkers.push(n);
         n.metadata = {
             type: "point",
             id: Xa
@@ -388,7 +390,7 @@
                     position: google.maps.ControlPosition.TOP_RIGHT
                 }
             }, void 0 === ea) {
-            ea = new google.maps.Map(document.getElementById("mapContainer"));
+            ea = init;
             var c = $("#mapContainer");
             Ko(c[0], "mousewheel", A, !0), Ko(c[0], "wheel", A, !0), Ko(c[0], "DOMMouseScroll", A, !0)
         }
