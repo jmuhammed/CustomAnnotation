@@ -256,7 +256,7 @@
             icon: e,
             zIndex: 100
         });
-        allMarkers.push(n);
+    
         n.metadata = {
             type: "point",
             id: Xa
