@@ -255,7 +255,7 @@
             icon: e,
             zIndex: 100
         });
-        nMker = nMar;
+        
         nMar.metadata = {
             type: "point",
             id: Xa
@@ -284,6 +284,7 @@
                 }
             }
         })
+        nMker = nMar;
     }
 
     function D(e) {
