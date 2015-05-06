@@ -257,7 +257,7 @@ function S() {
     n.metadata = {
         type: "point",
         id: Xa
-    }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = n, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = n, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(n),marker = n, google.maps.event.addListener(n, "click", function() {
+    }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = n, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = n, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(n), google.maps.event.addListener(n, "click", function() {
         if (o("rmaction", "click_MapPin"), Fa !== this) {
             var e, a = "",
                 n = this.metadata.id,
@@ -282,6 +282,7 @@ function S() {
             }
         }
     })
+    marker = n;
 }
 
 function D(e) {
