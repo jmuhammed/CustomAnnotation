@@ -1,5 +1,5 @@
 
-    var init= new google.maps.Map(document.getElementById("mapContainer"));
+    var init;
     var allMarkers = [];
 
     function e(e) {
@@ -390,7 +390,8 @@
                     position: google.maps.ControlPosition.TOP_RIGHT
                 }
             }, void 0 === ea) {
-            ea = init;
+            ea =new google.maps.Map(document.getElementById("mapContainer"));
+            init=ea;
             var c = $("#mapContainer");
             Ko(c[0], "mousewheel", A, !0), Ko(c[0], "wheel", A, !0), Ko(c[0], "DOMMouseScroll", A, !0)
         }
