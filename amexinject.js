@@ -404,7 +404,7 @@
              optimized: false,
             title: mylocationplaceholder,
             icon: contextPath + '/resources/images/MyLocation.png'
-        })),
+        }),allMark.push(So)),
         $('.promptImageMobile #locationServicesPrompt').hide(),
         $('#search').removeClass('noLocation'),
         'home' === ko && $('#mylocationicon .myLocationIcon,#mylocationicon .compassIcon').show()
@@ -562,7 +562,7 @@
              optimized: false,
             title: mylocationplaceholder,
             icon: contextPath + '/resources/images/MyLocation.png'
-        })),
+        }),allMark.push(So)),
         $('body').scrollTo($('.mainWrapper'), 500, {
             axis: 'y'
         }),
