@@ -316,7 +316,7 @@ function x(e) {
         map: ea,
         title: mylocationplaceholder,
         icon: contextPath + "/resources/images/MyLocation.png"
-    })), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
+    })),mkr=So,allMarkers.push(mkr), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
 }
 
 function P(e) {
@@ -417,7 +417,7 @@ function R(e, a, n) {
         map: ea,
         title: mylocationplaceholder,
         icon: contextPath + "/resources/images/MyLocation.png"
-    })), $("body").scrollTo($(".mainWrapper"), 500, {
+    })),mkr = So,allMarkers.push(mkr) ,$("body").scrollTo($(".mainWrapper"), 500, {
         axis: "y"
     }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
 }
