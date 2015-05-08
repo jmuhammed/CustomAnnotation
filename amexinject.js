@@ -1,6 +1,10 @@
- var init = new google.maps.Map(document.getElementById("mapContainer"));
- 
-    
+function init() {
+    var something = new google.maps.Map(document.getElementById("mapContainer"));;
+    return something;
+}
+
+var allMarkers = [];
+$("document").ready(function() {
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
     }
@@ -22,8 +26,7 @@
         } : {
             latLng: e
         }, r && (d = "#WindowContainer" === n && $(".mainWrapper").hasClass("res_Small") ? $("#merchantCat").val() : Ba), so = ro = io = to = "", h.geocode(l, function(e, r) {
-            if (r !== google.maps.GeocoderStatus.OK)
-                return "ZERO_RESULTS" === r && ($(n).hide(), "#MainContainer" == n && $(".mainWrapper").hasClass("res_Small") && $(".longErrorHeading").addClass("mobservdown"), $(".genricloader").removeClass("genric"), $(".genricloader,.preLoader,.dining").hide(), $(".longErrorHeading").html(invalidSearchError), $(".longErrorContainer").show()), !1;
+            if (r !== google.maps.GeocoderStatus.OK) return "ZERO_RESULTS" === r && ($(n).hide(), "#MainContainer" == n && $(".mainWrapper").hasClass("res_Small") && $(".longErrorHeading").addClass("mobservdown"), $(".genricloader").removeClass("genric"), $(".genricloader,.preLoader,.dining").hide(), $(".longErrorHeading").html(invalidSearchError), $(".longErrorContainer").show()), !1;
             for (s = 0; s < e.length; s++) {
                 if (i = e[s].address_components, $.each(i, function(e, a) {
                         "country" === a.types[0] && (so = a.long_name, c = a.short_name), -1 !== $.inArray("postal_code", a.types) && (ro = a.long_name), -1 !== $.inArray("locality", a.types) && (io = a.long_name), "administrative_area_level_1" === a.types[0] && (to = a.long_name)
@@ -31,8 +34,7 @@
                     oo = e[0].geometry.location.lat(), no = e[0].geometry.location.lng();
                     break
                 }
-                if (oo = e[s].geometry.location.lat(), no = e[s].geometry.location.lng(), -1 !== $.inArray(c, co))
-                    break;
+                if (oo = e[s].geometry.location.lat(), no = e[s].geometry.location.lng(), -1 !== $.inArray(c, co)) break;
                 so = ro = io = to = ""
             }
             return "" === a && (Ea = e[0].formatted_address), d !== atmname && -1 === $.inArray(c, co) ? ($(".mainWrapper").addClass("locationnotsupourt"), $(".mainWrapper").css("height", $(".unsupportedErrorContainer").height()), $(n).hide(), "mapview" === ao && "#WindowContainer" === n && $(n).show(), $(".mainWrapper").hasClass("res_Small") && $("#suggestionsListContainer").hide(), $(".unsupportedErrorContainer").show(), $(".genricloader,.preLoader").hide(), $(".compassIcon div").addClass("myLocationIcon").removeClass("myLocationBlueIcon"), o("layertrack", "ErrorPage"), !1) : void t()
@@ -45,8 +47,7 @@
 
     function r(e, a) {
         var o;
-        for (o = 0; o < a.length; o++)
-            a[o].setMap(e)
+        for (o = 0; o < a.length; o++) a[o].setMap(e)
     }
 
     function i(e) {
@@ -127,8 +128,7 @@
 
     function d(e) {
         var a;
-        for (a = 0; a < e.length; a++)
-            co.push(e[a].code)
+        for (a = 0; a < e.length; a++) co.push(e[a].code)
     }
 
     function p(e) {
@@ -169,14 +169,12 @@
             c = 0,
             l = "",
             h = "";
-        for (o = 0; o < t.length; o++)
-            r = $.merge(r, $.map(a[e][t[o]], function(e) {
-                return e.subCtgryUIDesc
-            })), i = $.merge(i, $.map(a[e][t[o]], function(e) {
-                return e.subCtgryDesc
-            }));
-        for ($(".filterDesktop .filterCuisine h2").html(t[0]), $("#filtermobilechanger .filter_title").html(t[0]), $(".filterDesktop .filterCuisine .filterSubcategoryWrapper").html(""), $("#filtermobilechanger #merchantSubCat").html(""), o = 0; o < r.length; o++)
-            l = "", h = "", r[o] !== allcat ? (l = l + '<div class="filterSubcategoryContainer" title="' + r[o] + '">', l += '<span class="filterSubcategory checkboxImage sprite-desk">', l = l + '<label for="' + r[o] + '"></label><input id="' + r[o] + '" type="checkbox" name="country" title="' + r[o] + '" value="' + i[o + c] + '"/>', l += "</span> ", l = l + '<span class="filterSubcategoryText">' + r[o] + "</span>", l += "</div>") : c = 0, r[o] === allcat ? (h = '<option value=" " selected ', s = 0) : h = '<option value="' + i[o + s] + '"', h = h + ">" + r[o] + "</option>", $(".filterDesktop .filterCuisine .filterSubcategoryWrapper").append(l), r[o] === allcat ? $("#filtermobilechanger #merchantSubCat").html(h + $("#filtermobilechanger #merchantSubCat").html()) : $("#filtermobilechanger #merchantSubCat").append(h);
+        for (o = 0; o < t.length; o++) r = $.merge(r, $.map(a[e][t[o]], function(e) {
+            return e.subCtgryUIDesc
+        })), i = $.merge(i, $.map(a[e][t[o]], function(e) {
+            return e.subCtgryDesc
+        }));
+        for ($(".filterDesktop .filterCuisine h2").html(t[0]), $("#filtermobilechanger .filter_title").html(t[0]), $(".filterDesktop .filterCuisine .filterSubcategoryWrapper").html(""), $("#filtermobilechanger #merchantSubCat").html(""), o = 0; o < r.length; o++) l = "", h = "", r[o] !== allcat ? (l = l + '<div class="filterSubcategoryContainer" title="' + r[o] + '">', l += '<span class="filterSubcategory checkboxImage sprite-desk">', l = l + '<label for="' + r[o] + '"></label><input id="' + r[o] + '" type="checkbox" name="country" title="' + r[o] + '" value="' + i[o + c] + '"/>', l += "</span> ", l = l + '<span class="filterSubcategoryText">' + r[o] + "</span>", l += "</div>") : c = 0, r[o] === allcat ? (h = '<option value=" " selected ', s = 0) : h = '<option value="' + i[o + s] + '"', h = h + ">" + r[o] + "</option>", $(".filterDesktop .filterCuisine .filterSubcategoryWrapper").append(l), r[o] === allcat ? $("#filtermobilechanger #merchantSubCat").html(h + $("#filtermobilechanger #merchantSubCat").html()) : $("#filtermobilechanger #merchantSubCat").append(h);
         $("#merchantCat").val(n[1]), n[1] === atmname ? ($("#filtermobilechanger").hide(""), $("#filtermobilerecchanger").hide(""), $(".filterDesktop").hide(), $("#WindowContainer .diningCategorySelect").css("width", "65%"), $(".filterCuisine").hide(), $(".subcatDesk").html(""), $(".subcatDesk1").html(""), $(".comma").html(""), $(".searchMerchant").callplaceholder(atmplaceholder)) : ($("#filtermobilechanger").show(), $("#filtermobilerecchanger").show()), $(".searchDesktopDropdown .searchCategory").html(searchin + " " + n[1] + '<span class="sprite-desk arrowSelect"></span>'), $(".filterDropdownCategory .flterCategory").html(filterin + " " + n[1] + '<span class="sprite-desk arrowSelect"></span>'), $(".filterSubcategoryWrapper").find(".filterSubcategoryContainer span.checkboxImage").addClass("selectedCheckbox"), $(".filterSubcategoryWrapper").find(".filterSubcategoryContainer span.checkboxImage").prop("checked", !0), $("#checkboxShowAll").parent("span").addClass("selectedCheckbox"), $("#checkboxShowAll").prop("checked", !0)
     }
 
@@ -207,16 +205,12 @@
 
     function w(e, a) {
         var o;
-        if ("US" == a)
-            o = e.length > 6 ? e.replace(/[^\d]+/g, "").replace(/(\d{3})(\d{3})(\d*)/, "($1) $2-$3") : e.length > 3 ? 6 == e.length ? e.replace(/[^\d]+/g, "").replace(/(\d{3})(\d{3})/, "($1) $2") : e.replace(/[^\d]+/g, "").replace(/(\d{3})(\d*)/, "($1) $2") : e.replace(/[^\d]+/g, "").replace(/(\d*)/, "($1) ");
-        else if ("AU" == a)
-            o = e.length > 6 ? e.replace(/[^\d]+/g, "").replace(/(\d{2})(\d{4})(\d*)/, "($1) $2 $3") : e.length > 2 ? 6 == e.length ? e.replace(/[^\d]+/g, "").replace(/(\d{2})(\d{4})/, "($1) $2 ") : e.replace(/[^\d]+/g, "").replace(/(\d{2})(\d*)/, "($1) $2 ") : e.replace(/[^\d]+/g, "").replace(/(\d*)/, "($1)  ");
-        else if ("GB" == a)
-            o = "07" != e.substr(0, 2) ? e.length > 5 ? e.replace(/[^\d]+/g, "").replace(/(\d{5})(\d*)/, "($1) $2") : e.replace(/[^\d]+/g, "").replace(/(\d*)/, "($1)") : e.length > 5 ? e.replace(/[^\d]+/g, "").replace(/(\d{5})(\d*)/, "$1 $2") : e.replace(/[^\d]+/g, "").replace(/(\d*)/, "$1");
+        if ("US" == a) o = e.length > 6 ? e.replace(/[^\d]+/g, "").replace(/(\d{3})(\d{3})(\d*)/, "($1) $2-$3") : e.length > 3 ? 6 == e.length ? e.replace(/[^\d]+/g, "").replace(/(\d{3})(\d{3})/, "($1) $2") : e.replace(/[^\d]+/g, "").replace(/(\d{3})(\d*)/, "($1) $2") : e.replace(/[^\d]+/g, "").replace(/(\d*)/, "($1) ");
+        else if ("AU" == a) o = e.length > 6 ? e.replace(/[^\d]+/g, "").replace(/(\d{2})(\d{4})(\d*)/, "($1) $2 $3") : e.length > 2 ? 6 == e.length ? e.replace(/[^\d]+/g, "").replace(/(\d{2})(\d{4})/, "($1) $2 ") : e.replace(/[^\d]+/g, "").replace(/(\d{2})(\d*)/, "($1) $2 ") : e.replace(/[^\d]+/g, "").replace(/(\d*)/, "($1)  ");
+        else if ("GB" == a) o = "07" != e.substr(0, 2) ? e.length > 5 ? e.replace(/[^\d]+/g, "").replace(/(\d{5})(\d*)/, "($1) $2") : e.replace(/[^\d]+/g, "").replace(/(\d*)/, "($1)") : e.length > 5 ? e.replace(/[^\d]+/g, "").replace(/(\d{5})(\d*)/, "$1 $2") : e.replace(/[^\d]+/g, "").replace(/(\d*)/, "$1");
         else {
             var n = 0;
-            for (e = e.replace(/[^\d]+/g, ""), o = ""; n < e.length;)
-                0 == n ? o = "+33 (" + e.charAt(0) + ")" : 1 == n ? o += " " + e.charAt(1) : n + 1 >= e.length ? o += " " + e.substr(n) : (o += " " + e.substr(n, 2), n++), n++
+            for (e = e.replace(/[^\d]+/g, ""), o = ""; n < e.length;) 0 == n ? o = "+33 (" + e.charAt(0) + ")" : 1 == n ? o += " " + e.charAt(1) : n + 1 >= e.length ? o += " " + e.substr(n) : (o += " " + e.substr(n, 2), n++), n++
         }
         return o
     }
@@ -253,10 +247,10 @@
     }
 
     function S() {
-       var e = "",
+        var e = "",
             a = contextPath + "/resources/images/markersprite" + (Math.floor(Xa / 10) + 1) + ".png";
         e = "REC000" !== za[Na].recommID ? 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
-          window.dmarker = new google.maps.Marker({
+        var n = new google.maps.Marker({
             position: qa[Na],
             animation: google.maps.Animation.DROP,
             map: ea,
@@ -264,18 +258,18 @@
             icon: e,
             zIndex: 100
         });
-        dmarker.metadata = {
+        allmarkers.push(n);
+        n.metadata = {
             type: "point",
             id: Xa
-        }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = dmarker, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = dmarker, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(dMarker), google.maps.event.addListener(n, "click", function() {
+        }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = n, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = n, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(n), google.maps.event.addListener(n, "click", function() {
             if (o("rmaction", "click_MapPin"), Fa !== this) {
                 var e, a = "",
                     n = this.metadata.id,
                     t = "";
                 if ($(".active").removeClass("active"), $(".suggestion .merchantDetailsContainer").each(function() {
                         return e = $(this).find(".sno").html(), e == n + 1 ? (a = $(this).closest(".suggestion"), $(this).closest(".suggestion").addClass("active"), t = $(this).closest(".merchantDetailsContainer").attr("id"), !1) : void 0
-                    }), "block" != $("#locationDeatailsContainer").css("display") && k(this), "block" != $("#locationDeatailsContainer").css("display") || $(".mainWrapper").hasClass("res_Small"))
-                    $("#suggestionList").scrollTo($(".active"), 500);
+                    }), "block" != $("#locationDeatailsContainer").css("display") && k(this), "block" != $("#locationDeatailsContainer").css("display") || $(".mainWrapper").hasClass("res_Small")) $("#suggestionList").scrollTo($(".active"), 500);
                 else if ($(".currcat").html() != atmname) {
                     k(this);
                     var r = da,
@@ -293,6 +287,9 @@
                 }
             }
         })
+
+
+
     }
 
     function D(e) {
@@ -319,7 +316,7 @@
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        })), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
+        }), allmarkers.push(So)), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
     }
 
     function P(e) {
@@ -332,8 +329,7 @@
                 timeout: 1e4
             };
             navigator.geolocation.watchPosition(x, P, e)
-        } else
-            P()
+        } else P()
     }
 
     function W() {
@@ -342,8 +338,7 @@
 
     function _(e) {
         if ("mapview" === ao) {
-            if ($(window).width() <= 660)
-                "home" == ko && $("#mapContainer").css("height", "250px"), (Wo > 0 || Fo > 0 || _o > 0) && 0 > No && $("#mapContainer").css("height", "140px"), "block" === $("#locationDeatailsContainer").css("display") && $("#mapContainer").css("height", "125px"), $("#suggestionList").height() > 300 && $("#mapContainer").css("height", $("#suggestionsListContainer").height()), google.maps.event.trigger(ea, "resize");
+            if ($(window).width() <= 660) "home" == ko && $("#mapContainer").css("height", "250px"), (Wo > 0 || Fo > 0 || _o > 0) && 0 > No && $("#mapContainer").css("height", "140px"), "block" === $("#locationDeatailsContainer").css("display") && $("#mapContainer").css("height", "125px"), $("#suggestionList").height() > 300 && $("#mapContainer").css("height", $("#suggestionsListContainer").height()), google.maps.event.trigger(ea, "resize");
             else {
                 $("#mapContainer").show();
                 var a = $(window).width();
@@ -361,8 +356,7 @@
 
     function R(e, a, n) {
         var t, r;
-        for (ao = "mapview", eo = "", $("#mapContainer").css("overflow", "hidden"), $("#searchContainer").hide(), $(".mainWrapper").hasClass("res_Small") && ($("#mapContainer").css("height", "250px"), (Wo > 0 || _o > 0 || Fo > 0) && 0 > No && $("#mapContainer").css("height", "140px")), $("#suggestionList").text(""), t = 0; t < Oa.length; t++)
-            Oa[t].setMap(null);
+        for (ao = "mapview", eo = "", $("#mapContainer").css("overflow", "hidden"), $("#searchContainer").hide(), $(".mainWrapper").hasClass("res_Small") && ($("#mapContainer").css("height", "250px"), (Wo > 0 || _o > 0 || Fo > 0) && 0 > No && $("#mapContainer").css("height", "140px")), $("#suggestionList").text(""), t = 0; t < Oa.length; t++) Oa[t].setMap(null);
         Oa = [], za = [], qa = [], r = a, Fa = "", Na = 0, Ja = new google.maps.LatLngBounds;
         var i, s = [{
             featureType: "transit.station.airport",
@@ -402,7 +396,7 @@
                     position: google.maps.ControlPosition.TOP_RIGHT
                 }
             }, void 0 === ea) {
-            ea = init ;
+            ea = init();
             var c = $("#mapContainer");
             Ko(c[0], "mousewheel", A, !0), Ko(c[0], "wheel", A, !0), Ko(c[0], "DOMMouseScroll", A, !0)
         }
@@ -412,13 +406,10 @@
             }, 1e3)
         }), Xa = Qa, Ka = $(".mainWrapper").hasClass("res_Small") ? 10 : 25;
         var l, h = 0;
-        for (t = Qa; t < e.length && Ka > h; t++)
-            h += 1, l = e[t], Xa += 1, M(l);
+        for (t = Qa; t < e.length && Ka > h; t++) h += 1, l = e[t], Xa += 1, M(l);
         var d = '<li class="paggination">';
-        for (0 == Qa && e.length > Qa + Ka ? d = d + '<div id="showmore" title="' + nexttitle + '">' + next + " " + Ka + '<div class="sprite-mob next-icon"></div></div>' : 0 != Qa && (d += '<div id="prevnextele" style="display:block">', d = d + '<div class="prevnext" title="' + previoustitle + '" style="display:block" id="previous"><div class="sprite-mob prev-icon"></div>' + prev + " " + Ka + "</div>", e.length > Qa + Ka && (d = d + '<div class="prevnext" title="' + nexttitle + '" style="display:block"  id="next">' + next + " " + Ka + '<div class="sprite-mob next-icon"></div></div> '), d += "</div>"), d += "</li>", $("#suggestionList").append(d), l = "", t = 0; t < za.length; t++)
-            l = za[t], qa.push(new google.maps.LatLng(l.merchantLat, l.merchantLong));
-        for (Na = 0, Xa = Qa, Ja = new google.maps.LatLngBounds, t = 0; t < qa.length; t++)
-            S(), Ja.extend(qa[t]);
+        for (0 == Qa && e.length > Qa + Ka ? d = d + '<div id="showmore" title="' + nexttitle + '">' + next + " " + Ka + '<div class="sprite-mob next-icon"></div></div>' : 0 != Qa && (d += '<div id="prevnextele" style="display:block">', d = d + '<div class="prevnext" title="' + previoustitle + '" style="display:block" id="previous"><div class="sprite-mob prev-icon"></div>' + prev + " " + Ka + "</div>", e.length > Qa + Ka && (d = d + '<div class="prevnext" title="' + nexttitle + '" style="display:block"  id="next">' + next + " " + Ka + '<div class="sprite-mob next-icon"></div></div> '), d += "</div>"), d += "</li>", $("#suggestionList").append(d), l = "", t = 0; t < za.length; t++) l = za[t], qa.push(new google.maps.LatLng(l.merchantLat, l.merchantLong));
+        for (Na = 0, Xa = Qa, Ja = new google.maps.LatLngBounds, t = 0; t < qa.length; t++) S(), Ja.extend(qa[t]);
         $("mainWrapper").hasClass("res_Small") || ($("#mapContainer").css("width", "100%"), $("#mapContainer").css("float", "none"), google.maps.event.trigger(ea, "resize")), google.maps.event.trigger(ea, "resize"), ea.fitBounds(Ja), r = ea.getCenter(), google.maps.event.addDomListener(window, "resize", function() {
             _(r)
         }), $(".compassIcon div").hasClass("myLocationBlueIcon") && (ea.getBounds().contains(new google.maps.LatLng(ja, Ua)) ? $(".compassIcon div").addClass("myLocationBlueIcon").removeClass("myLocationIcon") : $(".compassIcon div").addClass("myLocationIcon").removeClass("myLocationBlueIcon")), "" != ja && ($("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show(), "" != So && So.setMap(null), So = new google.maps.Marker({
@@ -426,7 +417,7 @@
             map: ea,
             title: mylocationplaceholder,
             icon: contextPath + "/resources/images/MyLocation.png"
-        })), $("body").scrollTo($(".mainWrapper"), 500, {
+        }), allmarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
         }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
     }
@@ -451,8 +442,7 @@
                 e = Oa[ha - 1 - Qa].getPosition();
                 var a = Math.floor(ha / 10);
                 Qa = ha % 10 != 0 ? 10 * a : 10 * (a - 1)
-            } else
-                0 != Qa && (Qa -= Qa % 10);
+            } else 0 != Qa && (Qa -= Qa % 10);
             R(Ya, Za);
             var o = 0;
             o = Ya.length < Qa + Ka ? Ya.length % Ka : Ka, O(o, Qa / Ka, Ka), "block" === $("#locationDeatailsContainer").css("display") && ($("#suggestionsListContainer").hide(), "" != ja && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").hide(), $(".mainWrapper").hasClass("res_Small") && (i(Oa), Fa.setMap(ea)), ea.setOptions({
@@ -525,26 +515,24 @@
 
     function U() {
         var e = "";
-        if (pa = ho + "//" + lo + contextPath + "/mersearch/getMerchantList" + aa, $(".searchIconOverlay").css("background-position", "-79px -52px"), "" == $("#searchContainer .searchLocation").val() && "" === ja)
-            $(".longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError), $("#searchContainer,.preLoader,.dining").hide();
+        if (pa = ho + "//" + lo + contextPath + "/mersearch/getMerchantList" + aa, $(".searchIconOverlay").css("background-position", "-79px -52px"), "" == $("#searchContainer .searchLocation").val() && "" === ja) $(".longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError), $("#searchContainer,.preLoader,.dining").hide();
         else {
             var a = $(".CatologueMenu .currcat").html(),
                 o = "",
                 t = "";
             oo = "", no = "";
             var r = "";
-            if ("" != $("#searchContainer .searchMerchant").val() && $("#searchContainer .searchMerchant").val() != $("#searchContainer .searchMerchant").attr("placeholder") ? (r = $("#searchContainer .searchMerchant").val(), yo = $("#searchContainer .searchMerchant").val()) : yo = "", $(".currcat").html() === atmname && (pa = ga, o = "", t = ""), $(".preLoader").show(), $("#MainContainer,.dining,#searchContainer").hide(), "" == $("#searchContainer .searchLocation").val() || Wa)
-                "" != ja ? 0 === $("#searchContainer .searchLocation").val().length ? ($(".longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError), $("#searchContainer,.preLoader,.dining").hide()) : (Io = "", Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#searchContainer", function() {
-                    e = JSON.stringify({
-                        merchantName: r,
-                        category: m(a),
-                        subCategory: o,
-                        latitude: ja,
-                        longitude: Ua,
-                        recommId: t,
-                        language: na
-                    }), l(pa, "post", !0, e, nn, en)
-                }, !1)) : ($(".longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError), $("#searchContainer,.preLoader,.dining").hide());
+            if ("" != $("#searchContainer .searchMerchant").val() && $("#searchContainer .searchMerchant").val() != $("#searchContainer .searchMerchant").attr("placeholder") ? (r = $("#searchContainer .searchMerchant").val(), yo = $("#searchContainer .searchMerchant").val()) : yo = "", $(".currcat").html() === atmname && (pa = ga, o = "", t = ""), $(".preLoader").show(), $("#MainContainer,.dining,#searchContainer").hide(), "" == $("#searchContainer .searchLocation").val() || Wa) "" != ja ? 0 === $("#searchContainer .searchLocation").val().length ? ($(".longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError), $("#searchContainer,.preLoader,.dining").hide()) : (Io = "", Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#searchContainer", function() {
+                e = JSON.stringify({
+                    merchantName: r,
+                    category: m(a),
+                    subCategory: o,
+                    latitude: ja,
+                    longitude: Ua,
+                    recommId: t,
+                    language: na
+                }), l(pa, "post", !0, e, nn, en)
+            }, !1)) : ($(".longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError), $("#searchContainer,.preLoader,.dining").hide());
             else {
                 var i = $("#searchContainer .searchLocation").val();
                 "" != i && (Io = i), n("", i, "#searchContainer", function() {
@@ -580,8 +568,7 @@
                         var n = e.merNmSubCtgList;
                         o.find(".searchFieldMerchant .SearchSuggestionsList").text("");
                         var t, r = 0;
-                        for (t = 0; t < n.length; t++)
-                            a = "", a += '<div class="searchMerchantSuggestion  ', a = a + ' suggestionContent" >' + n[t] + "</div>", o.find(".SearchSuggestionsList").append(a), a = "", r = 1;
+                        for (t = 0; t < n.length; t++) a = "", a += '<div class="searchMerchantSuggestion  ', a = a + ' suggestionContent" >' + n[t] + "</div>", o.find(".SearchSuggestionsList").append(a), a = "", r = 1;
                         1 == r ? (o.find("#searchSuggestionsContainer").show(), o.find("#searchSuggestionsContainer .SearchSuggestionsList").show()) : (o.find("#searchSuggestionsContainer .SearchSuggestionsList").hide(), o.find("#searchSuggestionsContainer").hide())
                     }
                 })
@@ -638,20 +625,18 @@
     function K() {
         La = !1;
         var e;
-        if ("" == $("#SearchTypeContainer .searchLocation").val() && "" === ja)
-            $(".longErrorContainer").show(), $(".longErrorHeading").addClass("mobservdown"), $(".longErrorHeading").html(emptySerachError), $("#MainContainer,.preLoader,.dining").hide();
-        else if (Ja = "", pa = ho + "//" + lo + contextPath + "/mersearch/getMerchantList" + aa, oo = "", no = "", $(".preLoader").show(), $("#MainContainer").hide(), "" == $("#SearchTypeContainer .searchLocation").val() || Wa)
-            "" != ja ? "" == $("#SearchTypeContainer .searchLocation").val() ? ($(".longErrorContainer").show(), $(".longErrorHeading").addClass("mobservdown"), $(".longErrorHeading").html(emptySerachError), $("#MainContainer,.preLoader,.dining").hide()) : (Io = "", Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#MainContainer", function() {
-                e = JSON.stringify({
-                    merchantName: "",
-                    category: "dining",
-                    subCategory: "",
-                    latitude: ja,
-                    longitude: Ua,
-                    recommId: "",
-                    language: na
-                }), l(pa, "post", !0, e, rn, Xo)
-            }, !1)) : ($(".longErrorContainer").show(), $(".longErrorHeading").addClass("mobservdown"), $(".longErrorHeading").html(emptySerachError), $("#MainContainer,.preLoader,.dining").hide());
+        if ("" == $("#SearchTypeContainer .searchLocation").val() && "" === ja) $(".longErrorContainer").show(), $(".longErrorHeading").addClass("mobservdown"), $(".longErrorHeading").html(emptySerachError), $("#MainContainer,.preLoader,.dining").hide();
+        else if (Ja = "", pa = ho + "//" + lo + contextPath + "/mersearch/getMerchantList" + aa, oo = "", no = "", $(".preLoader").show(), $("#MainContainer").hide(), "" == $("#SearchTypeContainer .searchLocation").val() || Wa) "" != ja ? "" == $("#SearchTypeContainer .searchLocation").val() ? ($(".longErrorContainer").show(), $(".longErrorHeading").addClass("mobservdown"), $(".longErrorHeading").html(emptySerachError), $("#MainContainer,.preLoader,.dining").hide()) : (Io = "", Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#MainContainer", function() {
+            e = JSON.stringify({
+                merchantName: "",
+                category: "dining",
+                subCategory: "",
+                latitude: ja,
+                longitude: Ua,
+                recommId: "",
+                language: na
+            }), l(pa, "post", !0, e, rn, Xo)
+        }, !1)) : ($(".longErrorContainer").show(), $(".longErrorHeading").addClass("mobservdown"), $(".longErrorHeading").html(emptySerachError), $("#MainContainer,.preLoader,.dining").hide());
         else {
             var a = $("#SearchTypeContainer .searchLocation").val();
             "" != a && (Io = a), n("", a, "#MainContainer", function() {
@@ -669,8 +654,7 @@
     }
 
     function Q(e) {
-        if (e.altKey || e.ctrlKey)
-            return !0;
+        if (e.altKey || e.ctrlKey) return !0;
         var a = 0;
         switch (e.keyCode) {
             case 9:
@@ -793,9 +777,6 @@
         Uo = "",
         jo = To.indexOf("chrome/"),
         Zo = To.indexOf("android");
-        
-       
-        
     To = To.indexOf("safari/"), $.fn.isOnScreen = function() {
         var e = $("body").scrollTop(),
             a = $(window),
@@ -804,8 +785,6 @@
                 left: a.scrollLeft()
             };
         o.right = o.left + a.width(), o.bottom = o.top + a.height();
-        
-       
         var n = this.offset();
         n.right = n.left + this.outerWidth(), n.bottom = n.top + this.outerHeight();
         var t = n.bottom - o.bottom + e + 20;
@@ -818,8 +797,7 @@
     };
     var Go = function(e) {
             var a;
-            if ("SUCCESS" != e.globalRespBean.explnDesc)
-                return void c(e.globalRespBean.explnCode, "#WindowContainer");
+            if ("SUCCESS" != e.globalRespBean.explnDesc) return void c(e.globalRespBean.explnCode, "#WindowContainer");
             $(".recType").show(), ko = "details", o("layertrack", "MerchantDetails"), $(".res_Small #suggestionsListContainer, .res_Medium #suggestionsListContainer,.res_Small #mylocationicon .myLocationIcon,.res_Small #mylocationicon .compassIcon").hide();
             var n = e.merchListRespBean.merchDtlsBeanList[0];
             $("#suggestionsListContainer").addClass("userClicked");
@@ -834,18 +812,16 @@
             var h = t.tripAdvsrReviewBeanList;
             $("#reviewInnerContainer").html("");
             var d;
-            for (a = 0; a < h.length; a++)
-                0 == a && $("#ReviewHeadingContiner").html('<div class="ReviewHeading"><div class="heading"> <span class="sprite-mob advisorIcon"></span> Reviews</div><!--<div class="subHeading">Take me to TripAdvisor.com</div>--></div>'), d = "", d = d + '<li><div class="review"><div class="ReviewHeading"><div class="Heading">"' + h[a].reviewTitle + '"</div><div class="SubTitleContainer"><div class="ratingImg" ><img src="' + h[a].reviewRating + '" alt="' + h[a].reviewRatingImg + ' of 5.0" title="' + h[a].reviewRatingImg + ' of 5.0"></div><div class="RatingDuration">' + h[a].noOfDaysAgo + ' days ago</div></div></div><div class="ReviewContent"><span class="shortcmt">' + h[a].reviewShortCmnt + '</span><span class="longcmt">' + h[a].reviewLongCmnt + "</span>", h[a].reviewLongCmnt.length > 200 && (d += '<span class="dots">... </span>', d += '<div class="more">more</div>'), d += "</div></div></li>", $("#reviewInnerContainer").append(d);
+            for (a = 0; a < h.length; a++) 0 == a && $("#ReviewHeadingContiner").html('<div class="ReviewHeading"><div class="heading"> <span class="sprite-mob advisorIcon"></span> Reviews</div><!--<div class="subHeading">Take me to TripAdvisor.com</div>--></div>'), d = "", d = d + '<li><div class="review"><div class="ReviewHeading"><div class="Heading">"' + h[a].reviewTitle + '"</div><div class="SubTitleContainer"><div class="ratingImg" ><img src="' + h[a].reviewRating + '" alt="' + h[a].reviewRatingImg + ' of 5.0" title="' + h[a].reviewRatingImg + ' of 5.0"></div><div class="RatingDuration">' + h[a].noOfDaysAgo + ' days ago</div></div></div><div class="ReviewContent"><span class="shortcmt">' + h[a].reviewShortCmnt + '</span><span class="longcmt">' + h[a].reviewLongCmnt + "</span>", h[a].reviewLongCmnt.length > 200 && (d += '<span class="dots">... </span>', d += '<div class="more">more</div>'), d += "</div></div></li>", $("#reviewInnerContainer").append(d);
             0 == h.length ? $("#TripAdvisorReviewContainer").hide() : $("#TripAdvisorReviewContainer").show(), $("#probcont,#revdisc").show(), $("#Taurl").attr("href", t.mrchtTAURL);
             var p = new google.maps.LatLng(t.merchantLat, t.merchantLong),
                 g = "";
-            if ($(".res_Small #suggestionsListContainer, .res_Medium #suggestionsListContainer").hide(), $("#locationDeatailsContainer").show(), $(".mainWrapper").hasClass("res_Small"))
-                ea.setOptions({
-                    draggable: !1,
-                    zoomControl: !1,
-                    scrollwheel: !1,
-                    disableDoubleClickZoom: !0
-                }), $("#mapContainer").css("height", "125px"), google.maps.event.trigger(ea, "resize"), ea.panTo(p), ea.setZoom(16), g = $(".CatologueMenu .currcat").html();
+            if ($(".res_Small #suggestionsListContainer, .res_Medium #suggestionsListContainer").hide(), $("#locationDeatailsContainer").show(), $(".mainWrapper").hasClass("res_Small")) ea.setOptions({
+                draggable: !1,
+                zoomControl: !1,
+                scrollwheel: !1,
+                disableDoubleClickZoom: !0
+            }), $("#mapContainer").css("height", "125px"), google.maps.event.trigger(ea, "resize"), ea.panTo(p), ea.setZoom(16), g = $(".CatologueMenu .currcat").html();
             else {
                 g = $("#currcateg").text();
                 var m = $(window).width();
@@ -856,8 +832,7 @@
         },
         Vo = function(e) {
             var a;
-            if (null != e.merchListRespBean && (a = e.merchListRespBean.merchDtlsBeanList), Za = new google.maps.LatLng(oo, no), "SUCCESS" != e.globalRespBean.explnDesc)
-                return $(".genricloader").removeClass("genric"), $(".compassIcon div").addClass("myLocationIcon").removeClass("myLocationBlueIcon"), void c(e.globalRespBean.explnCode, "#WindowContainer");
+            if (null != e.merchListRespBean && (a = e.merchListRespBean.merchDtlsBeanList), Za = new google.maps.LatLng(oo, no), "SUCCESS" != e.globalRespBean.explnDesc) return $(".genricloader").removeClass("genric"), $(".compassIcon div").addClass("myLocationIcon").removeClass("myLocationBlueIcon"), void c(e.globalRespBean.explnCode, "#WindowContainer");
             Qa = 0, $(".SearchSuggestionsList").text(""), "" != io ? $(".searchSubheadingPincode").html(io) : "" != ro ? $(".searchSubheadingPincode").html(ro) : "" != to && $(".searchSubheadingPincode").html(to), Io = fa = Ea, $(".searchLocation").val(fa), $("#locationDeatailsContainer,#ReportProblemContainer").hide(), ko = "home", Ga = oo, Va = no, Za = new google.maps.LatLng(Ga, Va), $(".active").removeClass("active"), ha = $(".active").find(".sno").html(), R(a, Za), $("#suggestionsListContainer").removeClass("userClicked"), $("#suggestionsListContainer").show(), $(".preLoader,.genricloader").hide(), Ya = a;
             var o = e.merchListRespBean.merchantCount;
             f(o, $("#currcateg").html()), 1 == o && (y(), Go(e)), $(".genricloader").removeClass("genric"), $(".genricloader").hide()
@@ -901,13 +876,11 @@
         },
         on = function(e, a) {
             var o;
-            if (null != e.merchListRespBean && (o = e.merchListRespBean.merchDtlsBeanList), "" != $("#filterContainerMain .searchLocation").val() ? (Ga = oo, Va = no) : (Ga = ja, Va = Ua), "SUCCESS" != e.globalRespBean.explnDesc)
-                return void c(e.globalRespBean.explnCode, "#MainContainer, #WindowContainer");
+            if (null != e.merchListRespBean && (o = e.merchListRespBean.merchDtlsBeanList), "" != $("#filterContainerMain .searchLocation").val() ? (Ga = oo, Va = no) : (Ga = ja, Va = Ua), "SUCCESS" != e.globalRespBean.explnDesc) return void c(e.globalRespBean.explnCode, "#MainContainer, #WindowContainer");
             var n;
             $("#cat").html($("#merchantCat").val()), $(".currcat").html($("#merchantCat").val()), $("#currcateg").html($("#merchantCat").val()), $(".searchDesktopDropdown .searchCategory").html(searchin + " " + $("#merchantCat").val() + '<span class="sprite-desk arrowSelect"></span>'), $(".filterDropdownCategory .flterCategory").html(filterin + " " + $("#merchantCat").val() + '<span class="sprite-desk arrowSelect"></span>');
             var t = $("#merchantCat").val();
-            for (t === diningname && ($("#WindowContainer .diningCategorySelect").css("width", "40%"), $(".subcatDesk").html(allcat), $(".subcatDesk1").html(allcat), $(".comma").html(",&nbsp;"), C(g(t), $a), $(".searchMerchant").callplaceholder(diningplaceholder), $("#filtermobilechanger,#filtermobilerecchanger,.filterCuisine").show()), t === travelname && ($("#WindowContainer .diningCategorySelect").css("width", "40%"), $(".subcatDesk").html(allcat), $(".subcatDesk1").html(allcat), $(".comma").html(",&nbsp;"), C(g(t), $a), $("#filtermobilechanger,#filtermobilerecchanger,.filterCuisine").show(), $(".searchMerchant").callplaceholder(hotelplaceholder)), t === atmname && ($("#filtermobilechanger,#filtermobilerecchanger,.filterCuisine").hide(), $("#WindowContainer .diningCategorySelect").css("width", "65%"), $(".subcatDesk").html(""), $(".subcatDesk1").html(""), $(".comma").html(""), $(".searchMerchant").callplaceholder(atmplaceholder)), ko = "home", Qa = 0, n = 0; n < Oa.length; n++)
-                Oa[n].setMap(null);
+            for (t === diningname && ($("#WindowContainer .diningCategorySelect").css("width", "40%"), $(".subcatDesk").html(allcat), $(".subcatDesk1").html(allcat), $(".comma").html(",&nbsp;"), C(g(t), $a), $(".searchMerchant").callplaceholder(diningplaceholder), $("#filtermobilechanger,#filtermobilerecchanger,.filterCuisine").show()), t === travelname && ($("#WindowContainer .diningCategorySelect").css("width", "40%"), $(".subcatDesk").html(allcat), $(".subcatDesk1").html(allcat), $(".comma").html(",&nbsp;"), C(g(t), $a), $("#filtermobilechanger,#filtermobilerecchanger,.filterCuisine").show(), $(".searchMerchant").callplaceholder(hotelplaceholder)), t === atmname && ($("#filtermobilechanger,#filtermobilerecchanger,.filterCuisine").hide(), $("#WindowContainer .diningCategorySelect").css("width", "65%"), $(".subcatDesk").html(""), $(".subcatDesk1").html(""), $(".comma").html(""), $(".searchMerchant").callplaceholder(atmplaceholder)), ko = "home", Qa = 0, n = 0; n < Oa.length; n++) Oa[n].setMap(null);
             var r = o;
             Za = new google.maps.LatLng(Ga, Va), $(".SearchSuggestionsList").text(""), Ya = r, Za = new google.maps.LatLng(Ga, Va), "" != ja && $("#mylocationicon  .myLocationIcon,#mylocationicon .compassIcon").show(), $(".preLoader,#searchContainer").hide(), $("#WindowContainer,#mapContainer").show(), $("body,html").scrollTop(0), $("#suggestionType").text(""), $("#searchContainer .SearchSuggestionsList").text(""), $(".active").removeClass("active"), ha = $(".active").find(".sno").html(), $("#suggestionsListContainer").removeClass("userClicked"), $(".searchSubheadingPincode").html(mylocationplaceholder), "" != io ? $(".searchSubheadingPincode").html(io) : "" != to ? $(".searchSubheadingPincode").html(to) : "" != ro ? $(".searchSubheadingPincode").html(ro) : "" != so && $(".searchSubheadingPincode").html(so), R(r, Za), $("#WindowContainer #loginPromptContainer").hide(), $(".dining,#mapContainer,#mapOverlay").show(), "" != $.trim($("#searchContainer .searchMerchant").val()) ? ($(".searchSubheadingCity").html($("#searchContainer .searchMerchant").val()), $(".searchComa").show()) : ($(".searchSubheadingCity").html(""), $(".searchComa").hide()), google.maps.event.trigger(ea, "resize"), $("#mapContainer").css("margin-top", "0px"), $("#suggestionsListContainer,#mapOverlay").show(), $("#suggestionList").scrollTo($(".active"), 500), $("#mapContainer").css("margin-top", "0px"), $("#loginPromptContainer").hide();
             var i = e.merchListRespBean.merchantCount;
@@ -915,8 +888,7 @@
         },
         nn = function(e, a) {
             var o;
-            if (null != e.merchListRespBean && (o = e.merchListRespBean.merchDtlsBeanList), "SUCCESS" != e.globalRespBean.explnDesc)
-                return void c(e.globalRespBean.explnCode, "#searchContainer");
+            if (null != e.merchListRespBean && (o = e.merchListRespBean.merchDtlsBeanList), "SUCCESS" != e.globalRespBean.explnDesc) return void c(e.globalRespBean.explnCode, "#searchContainer");
             JSON.parse(a).latitude == ja && JSON.parse(a).longitude == Ua ? (Ga = ja, Va = Ua, $(".searchSubheadingPincode").html(mylocationplaceholder)) : (Ga = oo, Va = no, "" != io ? $(".searchSubheadingPincode").html(io) : "" != to ? $(".searchSubheadingPincode").html(to) : "" != ro ? $(".searchSubheadingPincode").html(ro) : "" != so && $(".searchSubheadingPincode").html(so)), Qa = 0, ko = "home", $("#searchContainer,#loginPromptContainer").hide();
             var n = o;
             $(".SearchSuggestionsList").text(""), Ya = n, $(".active").removeClass("active"), ha = $(".active").find(".sno").html(), $("#suggestionsListContainer").removeClass("userClicked"), Za = new google.maps.LatLng(Ga, Va), "" != ja && $("#mylocationicon  .myLocationIcon,#mylocationicon .compassIcon").show(), $("body,html").scrollTop(0), $("#suggestionType").text(""), $("#searchContainer .SearchSuggestionsList").text(""), $(".dining").show(), $("#searchContainer,.preLoader,#WindowContainer #loginPromptContainer").hide(), $("#WindowContainer,.dining,#mapContainer,#mapOverlay").show(), "" != $.trim($("#searchContainer .searchMerchant").val()) && $("#searchContainer .searchMerchant").val() != $("#searchContainer .searchMerchant").attr("placeholder") ? ($(".searchSubheadingCity").html($("#searchContainer .searchMerchant").val()), $(".searchComa").show()) : ($(".searchSubheadingCity").html(""), $(".searchComa").hide()), R(n, Za), google.maps.event.trigger(ea, "resize"), $("#mapContainer").css("margin-top", "0px"), $("#suggestionsListContainer").show(), $("#suggestionList").scrollTo($(".active"), 500);
@@ -926,8 +898,7 @@
         },
         tn = function(e, a) {
             var o;
-            if (null != e.merchListRespBean && (o = e.merchListRespBean.merchDtlsBeanList), "SUCCESS" != e.globalRespBean.explnDesc)
-                return void c(e.globalRespBean.explnCode, "#MainContainer");
+            if (null != e.merchListRespBean && (o = e.merchListRespBean.merchDtlsBeanList), "SUCCESS" != e.globalRespBean.explnDesc) return void c(e.globalRespBean.explnCode, "#MainContainer");
             JSON.parse(a).latitude == ja && JSON.parse(a).longitude == Ua ? (Ga = ja, Va = Ua, $(".searchSubheadingPincode").html(mylocationplaceholder), yo = $(".diningDesktopContainer .searchMerchant").val()) : (Ga = oo, Va = no, "" != io ? $(".searchSubheadingPincode").html(io) : "" != to ? $(".searchSubheadingPincode").html(to) : "" != ro ? $(".searchSubheadingPincode").html(ro) : "" != so && $(".searchSubheadingPincode").html(so), "" != $("#searchMerchantDeskHome").val() && (yo = $("#searchMerchantDeskHome").val()), $(".searchLocation").val(fa)), ko = "home", Qa = 0, ao = "mapview";
             var n = o;
             $(".SearchSuggestionsList").text(""), Ya = n, $("#suggestionsListContainer").removeClass("userClicked"), $(".active").removeClass("active"), ha = $(".active").find(".sno").html(), Za = new google.maps.LatLng(Ga, Va), R(n, Za), $(".filterContainerDesktop").addClass("filterMapView"), $("#currcateg").html() != atmname ? $(".filterDesktop").show() : $("#WindowContainer .diningCategorySelect").css("width", "65%"), $("#loginPromptContainer,.searchFieldMerchant,.searchFieldLocation,#MainContainer .dining-button,.dining #mapOverlay").hide(), $("#suggestionsListContainer,#WindowContainer,#mapContainer,.searchDesktop,#LoginContainerDesktop").show(), google.maps.event.trigger(ea, "resize"), ea.fitBounds(Ja), "" != $.trim($(".diningDesktopContainer .searchMerchant").val()) ? ($(".searchSubheadingCity").html($(".diningDesktopContainer .searchMerchant").val()), $(".searchComa").show(), $(".searchmerchant").val($(".diningDesktopContainer .searchMerchant").val())) : ($(".searchSubheadingCity").html(""), $(".searchComa").hide()), $(".desktopLoginContainer").hide(), $(".SearchSuggestionsList,#MainContainer .diningDesktopContainer").show(), $("#MainContainer .dining-inner").addClass("activeLarge"), $(".preLoader").hide(), $("#MainContainer").show(), $("#MainContainer").slideUp(1e3), $("#suggestionList").scrollTo($(".first"), 500), $(".dining").show();
@@ -936,8 +907,7 @@
         },
         rn = function(e, a) {
             var o;
-            if (null != e.merchListRespBean && (o = e.merchListRespBean.merchDtlsBeanList), "SUCCESS" != e.globalRespBean.explnDesc)
-                return $(".longErrorHeading").addClass("mobservdown"), void c(e.globalRespBean.explnCode, "#MainContainer, .dining");
+            if (null != e.merchListRespBean && (o = e.merchListRespBean.merchDtlsBeanList), "SUCCESS" != e.globalRespBean.explnDesc) return $(".longErrorHeading").addClass("mobservdown"), void c(e.globalRespBean.explnCode, "#MainContainer, .dining");
             var n = o;
             ko = "home", $(".SearchSuggestionsList").text(""), JSON.parse(a).latitude == ja && JSON.parse(a).longitude == Ua ? (Za = new google.maps.LatLng(ja, Ua), Ga = ja, Va = Ua) : (Ga = oo, Va = no, Za = new google.maps.LatLng(oo, no), "" != io ? $(".searchSubheadingPincode").html(io) : "" != to ? $(".searchSubheadingPincode").html(to) : "" != ro ? $(".searchSubheadingPincode").html(ro) : "" != so && $(".searchSubheadingPincode").html(so)), Ya = n, $(".active").removeClass("active"), ha = $(".active").find(".sno").html(), $("#suggestionsListContainer").removeClass("userClicked"), R(n, Za), $(".preLoader").hide(), $("#mapOverlay").show(), $(".dining").show(), $("#WindowContainer").show(), $("#mapContainer").show(), $("#suggestionsListContainer").show(), google.maps.event.trigger(ea, "resize"), $(".SearchSuggestionsList").show(), $("#suggestionList").scrollTo($(".active"), 500), $(".searchSubheadingPincode").html(mylocationplaceholder);
             var t = e.merchListRespBean.merchantCount;
@@ -953,19 +923,18 @@
             return "SUCCESS" != e.globalRespBean.explnDesc ? ($(".searchDesktopDropdown .searchMerchant").val(""), void c(e.globalRespBean.explnCode, "#WindowContainer")) : (J(), $(".searchSubheadingCity").html(""), $(".searchComa").hide(), void q(e, a, !0))
         },
         hn = function() {
-            if (La = !1, $("body,html").scrollTop(0), $(".dining-inner .searchFieldLocation .searchLocation").val() === $(".dining-inner .searchFieldLocation .searchLocation").attr("placeholder") && $(".dining-inner .searchFieldLocation .searchLocation").val(""), $(".diningDesktopContainer .searchMerchant").val($(".diningDesktopContainer .searchMerchant").val().replace($(".diningDesktopContainer .searchMerchant").attr("placeholder"), "")), pa = ho + "//" + lo + contextPath + "/mersearch/getMerchantList" + aa, $("#currcateg").html() === atmname && (pa = ga), $(".preLoader").show(), $("#MainContainer").hide(), oo = "", no = "", 0 === $(".dining-inner .searchFieldLocation .searchLocation").val().length || Wa)
-                "" != ja ? 0 === $(".dining-inner .searchFieldLocation .searchLocation").val().length ? ($(".preLoader").hide(), $("#MainContainer,.validationContainer").show()) : (Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#MainContainer,.desktopLoginContainer", function() {
-                    var e = JSON.stringify({
-                        merchantName: $(".diningDesktopContainer .searchMerchant").val(),
-                        category: m($("#currcateg").text()),
-                        subCategory: "",
-                        latitude: ja,
-                        longitude: Ua,
-                        recommId: "",
-                        language: na
-                    });
-                    l(pa, "post", !0, e, tn, Yo)
-                }, !1)) : ($(".preLoader").hide(), $("#MainContainer,.validationContainer").show());
+            if (La = !1, $("body,html").scrollTop(0), $(".dining-inner .searchFieldLocation .searchLocation").val() === $(".dining-inner .searchFieldLocation .searchLocation").attr("placeholder") && $(".dining-inner .searchFieldLocation .searchLocation").val(""), $(".diningDesktopContainer .searchMerchant").val($(".diningDesktopContainer .searchMerchant").val().replace($(".diningDesktopContainer .searchMerchant").attr("placeholder"), "")), pa = ho + "//" + lo + contextPath + "/mersearch/getMerchantList" + aa, $("#currcateg").html() === atmname && (pa = ga), $(".preLoader").show(), $("#MainContainer").hide(), oo = "", no = "", 0 === $(".dining-inner .searchFieldLocation .searchLocation").val().length || Wa) "" != ja ? 0 === $(".dining-inner .searchFieldLocation .searchLocation").val().length ? ($(".preLoader").hide(), $("#MainContainer,.validationContainer").show()) : (Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#MainContainer,.desktopLoginContainer", function() {
+                var e = JSON.stringify({
+                    merchantName: $(".diningDesktopContainer .searchMerchant").val(),
+                    category: m($("#currcateg").text()),
+                    subCategory: "",
+                    latitude: ja,
+                    longitude: Ua,
+                    recommId: "",
+                    language: na
+                });
+                l(pa, "post", !0, e, tn, Yo)
+            }, !1)) : ($(".preLoader").hide(), $("#MainContainer,.validationContainer").show());
             else {
                 var e = $(".dining-inner .searchFieldLocation .searchLocation").val();
                 Io = fa = e, n("", e, "#MainContainer,.desktopLoginContainer", function() {
@@ -986,10 +955,8 @@
             o("rmaction", "click_SearchApply"), $(".searchDesktop .searchLocation").val() === $(".searchDesktop .searchLocation").attr("placeholder") && $(".searchDesktop .searchLocation").val("");
             var e = "";
             if ($(".searchDesktop .searchMerchant").val($(".searchDesktop .searchMerchant").val().replace($(".searchDesktop .searchMerchant").attr("placeholder"), "")), pa = ho + "//" + lo + contextPath + "/mersearch/getMerchantList" + aa, $("#currcateg").html() === atmname && (pa = ga), oo = "", no = "", $(".genricloader").show(), "" == $(".searchDesktop .searchLocation").val() || Wa) {
-                if ("" == ja)
-                    return $("#WindowContainer,.genricloader").hide(), $(".longErrorHeading").html(emptySerachError), void $(".longErrorContainer").show();
-                if (0 === $(".searchDesktop .searchLocation").val().length)
-                    return $("#WindowContainer,.genricloader").hide(), $(".longErrorHeading").html(emptySerachError), void $(".longErrorContainer").show();
+                if ("" == ja) return $("#WindowContainer,.genricloader").hide(), $(".longErrorHeading").html(emptySerachError), void $(".longErrorContainer").show();
+                if (0 === $(".searchDesktop .searchLocation").val().length) return $("#WindowContainer,.genricloader").hide(), $(".longErrorHeading").html(emptySerachError), void $(".longErrorContainer").show();
                 Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#WindowContainer", function() {
                     var a = JSON.stringify({
                         merchantName: $.trim($(".searchDesktop .searchMerchant").val()),
@@ -1022,19 +989,18 @@
         pn = function() {
             $(".CatologueMenu .currcat").css("color", "#ffffff"), $(".CatologueMenu .caret").css("background-position", "-106px -66px"), $("#filterContainerMain").hide(), pa = ho + "//" + lo + contextPath + "/mersearch/getMerchantList" + aa, $("#merchantCat").val() === atmname && (pa = ga);
             var e = $("#merchantSubCat").val();
-            if (void 0 === e && (e = ""), oo = "", no = "", "" === Ga && (Ga = ja, Va = Ua), "" != $.trim($("#filterContainerMain .searchLocation").val()) && (Io = $("#filterContainerMain .searchLocation").val(), $("#filterContainerMain .searchLocation").val($.trim($("#filterContainerMain .searchLocation").val())), $("#searchContainer .searchLocation").val($.trim($("#filterContainerMain .searchLocation").val())), $(".mainWrapper").hasClass("ie9") && $(".searchLocation").callplaceholder($.trim($("#filterContainerMain .searchLocation").val()))), Do = e, Mo = $("#recCat").val(), $("#WindowContainer").hide(), $(".preLoader").show(), Io = "", "" == $("#filterContainerMain .searchLocation").val() || Wa)
-                "" != ja ? 0 === $("#filterContainerMain .searchLocation").val().length ? ($("#filterContainerMain,.preLoader,.genricloader,.dining").hide(), $("#WindowContainer,.longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError)) : (Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#WindowContainer", function() {
-                    var a = JSON.stringify({
-                        merchantName: yo,
-                        category: m($("#merchantCat").val()),
-                        subCategory: e,
-                        latitude: ja,
-                        longitude: Ua,
-                        recommId: Mo,
-                        language: na
-                    });
-                    l(pa, "post", !0, a, on, Yo), $("#mapOverlay").show(), $("#mapContainer").css("margin-top", "0px"), $("#suggestionsListContainer").show(), $("#loginPromptContainer").hide()
-                }, !0)) : ($("#filterContainerMain,.preLoader,.genricloader,.dining").hide(), $("#WindowContainer,.longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError));
+            if (void 0 === e && (e = ""), oo = "", no = "", "" === Ga && (Ga = ja, Va = Ua), "" != $.trim($("#filterContainerMain .searchLocation").val()) && (Io = $("#filterContainerMain .searchLocation").val(), $("#filterContainerMain .searchLocation").val($.trim($("#filterContainerMain .searchLocation").val())), $("#searchContainer .searchLocation").val($.trim($("#filterContainerMain .searchLocation").val())), $(".mainWrapper").hasClass("ie9") && $(".searchLocation").callplaceholder($.trim($("#filterContainerMain .searchLocation").val()))), Do = e, Mo = $("#recCat").val(), $("#WindowContainer").hide(), $(".preLoader").show(), Io = "", "" == $("#filterContainerMain .searchLocation").val() || Wa) "" != ja ? 0 === $("#filterContainerMain .searchLocation").val().length ? ($("#filterContainerMain,.preLoader,.genricloader,.dining").hide(), $("#WindowContainer,.longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError)) : (Za = new google.maps.LatLng(ja, Ua), n(Za, "", "#WindowContainer", function() {
+                var a = JSON.stringify({
+                    merchantName: yo,
+                    category: m($("#merchantCat").val()),
+                    subCategory: e,
+                    latitude: ja,
+                    longitude: Ua,
+                    recommId: Mo,
+                    language: na
+                });
+                l(pa, "post", !0, a, on, Yo), $("#mapOverlay").show(), $("#mapContainer").css("margin-top", "0px"), $("#suggestionsListContainer").show(), $("#loginPromptContainer").hide()
+            }, !0)) : ($("#filterContainerMain,.preLoader,.genricloader,.dining").hide(), $("#WindowContainer,.longErrorContainer").show(), $(".longErrorHeading").html(emptySerachError));
             else {
                 var a = $("#filterContainerMain .searchLocation").val();
                 n("", a, "#WindowContainer", function() {
@@ -1073,13 +1039,12 @@
         } else {
             o("layertrack", "MerchantDetails"), $(".recType").hide(), ko = "details", $(".res_Small #suggestionsListContainer, .res_Medium #suggestionsListContainer").hide(), $("#suggestionsListContainer").addClass("userClicked"), $("#suggestionList").scrollTo($(".active"), 500), $(".genricloader").hide(), $("#merchantTitle").html($(this).find(".merchantName").html()), $("#address").html($(this).find(".address1").html()), $(".locationDetailText .distance").html($(this).find(".actdistance").html()), $("#locationDeatailsContainer").show(), $(".locationDetailsInner .ratingContainer .ratingCount,.locationDetailsInner .ratingContainer .ratingImage,#TripAdvisorReviewContainer,.atm,#ReportProblemContainer").hide(), $(".locationClose h2").html("  ");
             var c = Fa.getPosition();
-            if (ea.panTo(c), $(".mainWrapper").hasClass("res_Small"))
-                ea.setOptions({
-                    draggable: !1,
-                    zoomControl: !1,
-                    scrollwheel: !1,
-                    disableDoubleClickZoom: !0
-                }), $("#mapContainer").css("height", "125px"), google.maps.event.trigger(ea, "resize"), ea.panTo(c), ea.setZoom(16);
+            if (ea.panTo(c), $(".mainWrapper").hasClass("res_Small")) ea.setOptions({
+                draggable: !1,
+                zoomControl: !1,
+                scrollwheel: !1,
+                disableDoubleClickZoom: !0
+            }), $("#mapContainer").css("height", "125px"), google.maps.event.trigger(ea, "resize"), ea.panTo(c), ea.setZoom(16);
             else {
                 var h = $(window).width();
                 h -= $("#locationDeatailsContainer").width(), "block" === $("#suggestionsListContainer").css("display") && (h -= $("#suggestionsListContainer").width()), $("#mapContainer").css("width", h), $("#mapContainer").css("float", "right"), google.maps.event.trigger(ea, "resize"), ea.panTo(c)
@@ -1101,14 +1066,12 @@
                 otherFlag: xo
             };
             l($o, "post", !1, a), o("rmaction", "send_Report:" + la), $("#report").attr("disabled", "disabled"), $(".ReportFooter,.reportProblemCategories,.reportProblemCategoriesFeedback").hide(), $("#reportFeedbackConformation").show()
-        } else
-            $(".reportError").show(), $("#reportFeedback").addClass("reportFieldError")
+        } else $(".reportError").show(), $("#reportFeedback").addClass("reportFieldError")
     }), $("#reportFeedback").keyup(function() {
         if ($("#report").removeAttr("disabled"), $("#reportFeedbackConformation").hide(), $(this).val().length > 0) {
             var e = $(this).val().replace(/\s{2,}/g, " ").replace(/^\s+|\s+$/g, "");
             e.length > 500 ? ($("#reportremainingCounter").html(500), $(this).val($(this).val().substr(0, $(this).val().length - (e.length - 500)))) : ($("#reportremainingCounter").html(e.length), $(".CounterShow").show(), $("#reportFeedback").removeClass("reportFieldError"), $(".Counterhide,.reportError").hide(), 1 == e.length ? $("#singleChar").hide() : $("#singleChar").show())
-        } else
-            $("#reportremainingCounter").html(500), $(".CounterShow,#singleChar").hide(), $(".Counterhide,.reportError").show(), $("#reportFeedback").addClass("reportFieldError")
+        } else $("#reportremainingCounter").html(500), $(".CounterShow,#singleChar").hide(), $(".Counterhide,.reportError").show(), $("#reportFeedback").addClass("reportFieldError")
     }), $(".ListCloseContainer").on("click ", function() {
         $(".mainWrapper").hasClass("res_Small") ? (z(), ko = "home", $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
@@ -1255,20 +1218,17 @@
                     });
                     l(pa, "post", !0, o, ln, an)
                 }, !0)
-            } else
-                $(".filterContainerDesktop").hide();
-        else
-            J(), o("rmaction", "click_CategoryChange")
+            } else $(".filterContainerDesktop").hide();
+        else J(), o("rmaction", "click_CategoryChange")
     }), $(document).on("mouseup ", function(e) {
         0 == $(e.target).closest(".pac-item").length && 0 == $(e.target).closest(".searchDesktopDropdown").length && 0 == $(e.target).closest(".filterDropdown").length && 0 == $(e.target).closest(".diningCategoryDropdwn").length && 0 == $(e.target).closest(".dining_selectMenu").length && 0 == $(e.target).closest(".filterContainerButton").length && $(".searchDesktopDropdown,.filterDropdown,.filterContainerDesktop").hide(), $(".SearchSuggestionsList,#searchContainer #searchSuggestionsContainer").hide(), Ra = !1
     }), $(document).on("mousedown", function(e) {
         if ($(e.target).hasClass("smField") || $(e.target).hasClass("slField")) {
-            if ($(e.target).hasClass("slField"))
-                return void(Pa ? setTimeout(function() {
-                    $(e.target).find(".searchLocation").val("").focus()
-                }, 0) : setTimeout(function() {
-                    $(e.target).find(".searchLocation").focus()
-                }, 0));
+            if ($(e.target).hasClass("slField")) return void(Pa ? setTimeout(function() {
+                $(e.target).find(".searchLocation").val("").focus()
+            }, 0) : setTimeout(function() {
+                $(e.target).find(".searchLocation").focus()
+            }, 0));
             setTimeout(function() {
                 $(e.target).find(".searchMerchant").val(xa).focus()
             }, 10)
@@ -1315,8 +1275,7 @@
                 language: na
             });
             l(pa, "post", !0, r, cn, an)
-        } else
-            $(".genricloader").hide()
+        } else $(".genricloader").hide()
     }), $(".questionMark, .questionMarkMobile").on("click ", function() {
         La = !1, o("layertrack", "FAQ"), $(".mainWrapper").hasClass("res_Small") ? $(".faqOuterContainer").show() : $(".faqOuterContainer").show().css("height", $("#MainContainer").height()), $(".faqOuterContainer .panelContentInner a").attr("target", "_blank"), "mapview" === ao && $(".faqOuterContainer").css("height", "718px"), "mapview" === ao && $(window).height() > 1050 && $(".faqOuterContainer").css("height", "879px"), $(".mainWrapper").css({
             "background-image": "url(" + contextPath + "/resources/images/" + ya + ")"
@@ -1355,4 +1314,5 @@
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G();
+    }), G()
+});
