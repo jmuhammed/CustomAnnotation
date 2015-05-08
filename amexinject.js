@@ -1,7 +1,7 @@
 
 var init = new google.maps.Map(document.getElementById("mapContainer"));
 var allMarkers = [];
-
+$("document").ready(function() {
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
     }
@@ -247,7 +247,7 @@ var allMarkers = [];
         var e = "",
             a = contextPath + "/resources/images/markersprite" + (Math.floor(Xa / 10) + 1) + ".png";
         e = "REC000" !== za[Na].recommID ? 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
-         var nMark = new google.maps.Marker({
+        var n = new google.maps.Marker({
             position: qa[Na],
             animation: google.maps.Animation.DROP,
             map: ea,
@@ -255,11 +255,11 @@ var allMarkers = [];
             icon: e,
             zIndex: 100
         });
-        
-        nMark.metadata = {
+        allmarkers.push(n);
+        n.metadata = {
             type: "point",
             id: Xa
-        }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = nMark, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = nMark, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(nMark),allmarkers.push(nMark), google.maps.event.addListener(n, "click", function() {
+        }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = n, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = n, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(n),allMarkers=Oa, google.maps.event.addListener(n, "click", function() {
             if (o("rmaction", "click_MapPin"), Fa !== this) {
                 var e, a = "",
                     n = this.metadata.id,
@@ -1311,5 +1311,5 @@ var allMarkers = [];
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G();
-
+    }), G()
+});
