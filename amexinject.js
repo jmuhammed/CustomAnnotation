@@ -311,7 +311,7 @@
         Xa += 1,
         Oa.push(nMark),
         allMark.push(nMark),
-        google.maps.event.addListener(nMark, 'click', function () {
+        google.maps.event.addListener(n, 'click', function () {
             if (o('rmaction', 'click_MapPin'), Fa !== this) {
                 var e,
                 a = '',
