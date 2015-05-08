@@ -1,7 +1,7 @@
 
 var init = new google.maps.Map(document.getElementById("mapContainer"));
 var allMarkers = [];
-$("document").ready(function() {
+
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
     }
@@ -1311,5 +1311,4 @@ $("document").ready(function() {
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G()
-});
+    }), G();
