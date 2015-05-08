@@ -311,15 +311,15 @@
         Xa += 1,
         Oa.push(nMark),
         allMark.push(nMark),
-        google.maps.event.addListener(n, 'click', function () {
+        google.maps.event.addListener(nMark, 'click', function () {
             if (o('rmaction', 'click_MapPin'), Fa !== this) {
                 var e,
                 a = '',
-                n = this.metadata.id,
+                nMark = this.metadata.id,
                 t = '';
                 if ($('.active').removeClass('active'), $('.suggestion .merchantDetailsContainer').each(function () {
                     return e = $(this).find('.sno').html(),
-                    e == n + 1 ? (a = $(this).closest('.suggestion'), $(this).closest('.suggestion').addClass('active'), t = $(this).closest('.merchantDetailsContainer').attr('id'), !1)  : void 0
+                    e == nMark + 1 ? (a = $(this).closest('.suggestion'), $(this).closest('.suggestion').addClass('active'), t = $(this).closest('.merchantDetailsContainer').attr('id'), !1)  : void 0
                 }), 'block' != $('#locationDeatailsContainer').css('display') && k(this), 'block' != $('#locationDeatailsContainer').css('display') || $('.mainWrapper').hasClass('res_Small')) $('#suggestionList').scrollTo($('.active'), 500);
                  else if ($('.currcat').html() != atmname) {
                     k(this);
