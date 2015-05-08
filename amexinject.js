@@ -297,10 +297,10 @@
             position: qa[Na],
             animation: google.maps.Animation.DROP,
             map: ea,
-            optimized: false,
             title: za[Na].merchantName,
             icon: e,
-            zIndex: 100
+            zIndex: 100,
+            optimized: false
         });
         n.metadata = {
             type: 'point',
@@ -401,9 +401,9 @@
         }, 3000))  : (ja = e.coords.latitude, Ua = e.coords.longitude, Ha = new google.maps.LatLng(ja, Ua), '' != So && So.setMap(null), So = new google.maps.Marker({
             position: Ha,
             map: ea,
-             optimized: false,
             title: mylocationplaceholder,
-            icon: contextPath + '/resources/images/MyLocation.png'
+            icon: contextPath + '/resources/images/MyLocation.png',
+            optimized: false
         }),allMark.push(So)),
         $('.promptImageMobile #locationServicesPrompt').hide(),
         $('#search').removeClass('noLocation'),
@@ -559,9 +559,9 @@
         '' != ja && ($('#mylocationicon .myLocationIcon,#mylocationicon .compassIcon').show(), '' != So && So.setMap(null), So = new google.maps.Marker({
             position: Ha,
             map: ea,
-             optimized: false,
             title: mylocationplaceholder,
-            icon: contextPath + '/resources/images/MyLocation.png'
+            icon: contextPath + '/resources/images/MyLocation.png',
+             optimized: false
         }),allMark.push(So)),
         $('body').scrollTo($('.mainWrapper'), 500, {
             axis: 'y'
