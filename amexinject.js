@@ -290,7 +290,18 @@
         }
     }
     function S() {
-        
+            var e = '',
+        a = contextPath + '/resources/images/markersprite' + (Math.floor(Xa / 10) + 1) + '.png';
+        e = 'REC000' !== za[Na].recommID ? 0 === Na && $('.mainWrapper').hasClass('res_Small') && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : ha - 1 === Xa && $('#suggestionsListContainer').hasClass('userClicked') ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : 0 === Na && $('.mainWrapper').hasClass('res_Small') && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : ha - 1 === Xa && $('#suggestionsListContainer').hasClass('userClicked') ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
+        window.nMark = new google.maps.Marker({
+            position: qa[Na],
+            animation: google.maps.Animation.DROP,
+            map: ea,
+            title: za[Na].merchantName,
+            icon: e,
+            zIndex: 100,
+            optimized: false
+        });
         nMark.metadata = {
             type: 'point',
             id: Xa
@@ -1115,18 +1126,7 @@
         };
         o.right = o.left + a.width(),
         o.bottom = o.top + a.height();
-         var e = '',
-        a = contextPath + '/resources/images/markersprite' + (Math.floor(Xa / 10) + 1) + '.png';
-        e = 'REC000' !== za[Na].recommID ? 0 === Na && $('.mainWrapper').hasClass('res_Small') && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : ha - 1 === Xa && $('#suggestionsListContainer').hasClass('userClicked') ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : 0 === Na && $('.mainWrapper').hasClass('res_Small') && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : ha - 1 === Xa && $('#suggestionsListContainer').hasClass('userClicked') ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240))  : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
-        var nMark = new google.maps.Marker({
-            position: qa[Na],
-            animation: google.maps.Animation.DROP,
-            map: ea,
-            title: za[Na].merchantName,
-            icon: e,
-            zIndex: 100,
-            optimized: false
-        });
+     
 
         var n = this.offset();
         n.right = n.left + this.outerWidth(),
