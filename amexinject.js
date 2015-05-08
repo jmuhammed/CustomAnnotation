@@ -319,7 +319,8 @@
             position: Ha,
             map: ea,
             title: mylocationplaceholder,
-            icon: contextPath + "/resources/images/MyLocation.png"
+            icon: contextPath + "/resources/images/MyLocation.png",
+            optmized : false 
         }),putMarkers.push(So)), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
     }
 
@@ -420,7 +421,8 @@
             position: Ha,
             map: ea,
             title: mylocationplaceholder,
-            icon: contextPath + "/resources/images/MyLocation.png"
+            icon: contextPath + "/resources/images/MyLocation.png",
+            optmized : false
         }),putMarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
         }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
