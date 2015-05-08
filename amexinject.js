@@ -1,6 +1,6 @@
  var init = new google.maps.Map(document.getElementById("mapContainer"));
  
-   
+    var window.dmarker;
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
     }
@@ -794,7 +794,7 @@
         jo = To.indexOf("chrome/"),
         Zo = To.indexOf("android");
         
-        var window.dmarker;
+       
         
     To = To.indexOf("safari/"), $.fn.isOnScreen = function() {
         var e = $("body").scrollTop(),
