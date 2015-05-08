@@ -1,7 +1,4 @@
  var init = new google.maps.Map(document.getElementById("mapContainer"));
-
-
-
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
     }
@@ -789,7 +786,6 @@
         No = To.indexOf("chrome"),
         zo = "",
         Ho = "",
-        window.dmarker;
         Jo = [38, 40, 9, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 45],
         qo = $(".deskRec").html(),
         Uo = "",
