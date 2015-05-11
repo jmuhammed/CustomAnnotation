@@ -370,7 +370,7 @@
                             $('.locationClose h2').html('  '),
                             $('.atm').hide()
                     }
-               // }
+                }
             })
     }
 
