@@ -324,12 +324,12 @@
             Xa += 1,
             Oa.push(initMarker),
             google.maps.event.addListener(initMarker, 'click', function() {
-              /*  if (o('rmaction', 'click_MapPin'), Fa !== this) {
+               if (o('rmaction', 'click_MapPin'), Fa !== this) {
                     var e,
                         a = '',
                         n = this.metadata.id,
                         t = '';
-                    if ($('.active').removeClass('active'), $('.suggestion .merchantDetailsContainer').each(function() {
+                  /*  if ($('.active').removeClass('active'), $('.suggestion .merchantDetailsContainer').each(function() {
                             return e = $(this).find('.sno').html(),
                                 e == n + 1 ? (a = $(this).closest('.suggestion'), $(this).closest('.suggestion').addClass('active'), t = $(this).closest('.merchantDetailsContainer').attr('id'), !1) : void 0
                         }), 'block' != $('#locationDeatailsContainer').css('display') && k(this), 'block' != $('#locationDeatailsContainer').css('display') || $('.mainWrapper').hasClass('res_Small')) $('#suggestionList').scrollTo($('.active'), 500);
@@ -367,7 +367,7 @@
                             $('#TripAdvisorReviewContainer').hide(),
                             $('.locationClose h2').html('  '),
                             $('.atm').hide()
-                    //}
+                    }
                // }
             })
     }
