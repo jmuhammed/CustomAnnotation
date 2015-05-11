@@ -324,7 +324,7 @@
             Xa += 1,
             Oa.push(initMarker),
             google.maps.event.addListener(initMarker, 'click', function() {
-                if (o('rmaction', 'click_MapPin'), Fa !== this) {
+             /*   if (o('rmaction', 'click_MapPin'), Fa !== this) {
                     var e,
                         a = '',
                         n = this.metadata.id,
@@ -343,7 +343,7 @@
                                 language: na
                             });
                         l(r, 'post', !0, i, Go)
-                    } else {
+                    } else {*/
                         $('.active').removeClass('active'),
                             $(a).addClass('active');
                         var s,
@@ -367,8 +367,8 @@
                             $('#TripAdvisorReviewContainer').hide(),
                             $('.locationClose h2').html('  '),
                             $('.atm').hide()
-                    }
-                }
+                    //}
+                //}
             })
     }
 
