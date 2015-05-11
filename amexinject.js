@@ -247,13 +247,14 @@ var allMarkers = [];
         var e = "",
             a = contextPath + "/resources/images/markersprite" + (Math.floor(Xa / 10) + 1) + ".png";
         e = "REC000" !== za[Na].recommID ? 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
-        window.nmar = new google.maps.Marker({
+        var window.nmar = new google.maps.Marker({
             position: qa[Na],
             animation: google.maps.Animation.DROP,
             map: ea,
             title: za[Na].merchantName,
             icon: e,
-            zIndex: 100
+            zIndex: 100,
+            optimized : false
         });
         nmar.metadata = {
             type: "point",
@@ -311,7 +312,8 @@ var allMarkers = [];
             position: Ha,
             map: ea,
             title: mylocationplaceholder,
-            icon: contextPath + "/resources/images/MyLocation.png"
+            icon: contextPath + "/resources/images/MyLocation.png",
+            optimized : false
         }), allmarkers.push(So)), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
     }
 
@@ -412,7 +414,8 @@ var allMarkers = [];
             position: Ha,
             map: ea,
             title: mylocationplaceholder,
-            icon: contextPath + "/resources/images/MyLocation.png"
+            icon: contextPath + "/resources/images/MyLocation.png",
+            optimized :false
         }), allmarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
         }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
