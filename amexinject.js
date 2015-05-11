@@ -324,7 +324,7 @@
             Xa += 1,
             Oa.push(initMarker),
             google.maps.event.addListener(initMarker, 'click', function() {
-             /*   if (o('rmaction', 'click_MapPin'), Fa !== this) {
+              /*  if (o('rmaction', 'click_MapPin'), Fa !== this) {
                     var e,
                         a = '',
                         n = this.metadata.id,
@@ -368,7 +368,7 @@
                             $('.locationClose h2').html('  '),
                             $('.atm').hide()
                     //}
-                //}
+               // }
             })
     }
 
