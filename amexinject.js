@@ -2162,4 +2162,5 @@
             var a = $(this).attr('href');
             window.open(a, '_blank')
         }),
-        G()
+        G(),
+        S();
