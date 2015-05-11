@@ -1,6 +1,8 @@
+ var globl=new google.maps.Map(document.getElementById("mapContainer"));
 
-var init = new google.maps.Map(document.getElementById("mapContainer"));
-var allMarkers = [];
+$("document").ready(function() {
+    
+    
 
     function e(e) {
         $(".mainWrapper").removeClass("res_Large res_Medium res_Small"), $(".mainWrapper").addClass(e)
@@ -246,20 +248,20 @@ var allMarkers = [];
     function S() {
         var e = "",
             a = contextPath + "/resources/images/markersprite" + (Math.floor(Xa / 10) + 1) + ".png";
-        e = "REC000" !== za[Na].recommID ? 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
-        var window.nmar = new google.maps.Marker({
+        e = "REC000" !== za[Na].recommID ? 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 =
+ ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 180), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 120), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : 0 === Na && $(".mainWrapper").hasClass("res_Small") && void 0 === ha ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : ha - 1 === Xa && $("#suggestionsListContainer").hasClass("userClicked") ? new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 60), new google.maps.Point(20, 60), new google.maps.Size(400, 240)) : new google.maps.MarkerImage(a, new google.maps.Size(40, 60), new google.maps.Point(40 * Math.floor(Xa % 10), 0), new google.maps.Point(20, 60), new google.maps.Size(400, 240));
+        var n = new google.maps.Marker({
             position: qa[Na],
             animation: google.maps.Animation.DROP,
             map: ea,
             title: za[Na].merchantName,
             icon: e,
-            zIndex: 100,
-            optimized : false
+            zIndex: 100
         });
-        nmar.metadata = {
+        n.metadata = {
             type: "point",
             id: Xa
-        }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = nmar, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = nmar, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(nmar),allMarkers=Oa, google.maps.event.addListener(n, "click", function() {
+        }, 0 === Na && $(".mainWrapper").hasClass("res_Small") ? (Fa = n, Fa.setZIndex(1e3)) : void 0 !== ha && ha - 1 === Xa && (Fa = n, Fa.setZIndex(1e3)), Na += 1, Xa += 1, Oa.push(n), google.maps.event.addListener(n, "click", function() {
             if (o("rmaction", "click_MapPin"), Fa !== this) {
                 var e, a = "",
                     n = this.metadata.id,
@@ -284,9 +286,6 @@ var allMarkers = [];
                 }
             }
         })
-
-
-
     }
 
     function D(e) {
@@ -312,9 +311,8 @@ var allMarkers = [];
             position: Ha,
             map: ea,
             title: mylocationplaceholder,
-            icon: contextPath + "/resources/images/MyLocation.png",
-            optimized : false
-        }), allmarkers.push(So)), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
+            icon: contextPath + "/resources/images/MyLocation.png"
+        })), $(".promptImageMobile #locationServicesPrompt").hide(), $("#search").removeClass("noLocation"), "home" === ko && $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").show()
     }
 
     function P(e) {
@@ -394,7 +392,7 @@ var allMarkers = [];
                     position: google.maps.ControlPosition.TOP_RIGHT
                 }
             }, void 0 === ea) {
-            ea = init;
+            ea =globl ;
             var c = $("#mapContainer");
             Ko(c[0], "mousewheel", A, !0), Ko(c[0], "wheel", A, !0), Ko(c[0], "DOMMouseScroll", A, !0)
         }
@@ -414,9 +412,8 @@ var allMarkers = [];
             position: Ha,
             map: ea,
             title: mylocationplaceholder,
-            icon: contextPath + "/resources/images/MyLocation.png",
-            optimized :false
-        }), allmarkers.push(So)), $("body").scrollTo($(".mainWrapper"), 500, {
+            icon: contextPath + "/resources/images/MyLocation.png"
+        })), $("body").scrollTo($(".mainWrapper"), 500, {
             axis: "y"
         }), $("#suggestionList").append('<li class="empty"></li>'), $("#suggestionList").scrollTo($(".first"), 500), void 0 !== ha && $("#suggestionsListContainer").hasClass("userClicked") && $("#suggestionList").scrollTo($(".active"), 500), void 0 == n ? o("layertrack", "SearchDetails:ListView") : o("layertrack", "SearchDetails:ListView:" + n)
     }
@@ -688,7 +685,7 @@ var allMarkers = [];
             $(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey")
         }, 0) : ($(".searchLocation").val(Uo), Ta = !1) : I()) : "" == Io || Ta || Pa ? "" != ja ? Pa ? $(".mainWrapper").hasClass("ie9") ? ($(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey"), Uo = "") : ($(".searchLocation").val(""), $(".searchLocation").css("color", "grey"), Uo = "", Ta = !1) : I() : $(".mainWrapper").hasClass("ie9") ? ($(".searchLocation").val(locationplaceholder), $(".searchLocation").css("color", "grey")) : ($(".searchLocation").val(""), $(".searchLocation").css("color", "grey"), Uo = "", Ta = !1) : ($(".searchLocation").val(Io), $(".searchLocation").css("color", "black"), Ta = !1)
     }
-    var ea, aa, oa, na, ta, ra, ia, sa, ca, la, ha, da, pa, ga, ma, $a, ua, Ca, va, fa = "",
+    var  ea,aa, oa, na, ta, ra, ia, sa, ca, la, ha, da, pa, ga, ma, $a, ua, Ca, va, fa = "",
         ba = ["bg-mob-breakfast.jpg", "bg-mob-cooking.jpg", "bg-mob-hotelbell.jpg"],
         wa = ["bg-desk-breakfast.jpg", "bg-desk-cooking.jpg", "bg-desk-hotelbell.jpg"],
         ka = ["bg-tab-breakfast.jpg", "bg-tab-cooking.jpg", "bg-tab-hotelbell.jpg"],
@@ -703,6 +700,7 @@ var allMarkers = [];
         Ta = !1,
         Wa = !1,
         _a = [],
+       
         Aa = function(e) {
             var a = [],
                 o = {
@@ -1115,7 +1113,7 @@ var allMarkers = [];
         clearTimeout(ma), ma = setTimeout(F, 100)
     }), $("#mylocationicon .myLocationIcon,#mylocationicon .compassIcon").on("click ", function() {
         t(), $(".genricloader").show(), o("rmaction", "click_Compass"), Qo(Ha), $(".compassIcon div").addClass("myLocationBlueIcon").removeClass("myLocationIcon")
-    }), $("#mapContainer").on("click", 'div[title="Pan left"],div[title="Pan right"],div[title="Pan up"],div[title="Pan down"],div[title="Déplacer vers la gauche"],div[title="Déplacer vers la droite"],div[title="Déplacer vers le haut"],div[title="Déplacer vers le bas"]', function() {
+    }), $("#mapContainer").on("click", 'div[title="Pan left"],div[title="Pan right"],div[title="Pan up"],div[title="Pan down"],div[title="DÃƒÂ©placer vers la gauche"],div[title="DÃƒÂ©placer vers la droite"],div[title="DÃƒÂ©placer vers le haut"],div[title="DÃƒÂ©placer vers le bas"]', function() {
         $(".genricloader").hide(), $.inArray(Lo, vo) < 0 && null !== Po && Po.abort(), clearTimeout(zo), zo = setTimeout(function() {
             $(".genricloader").addClass("genric"), $(".genricloader").show(), Qo()
         }, 1e3)
@@ -1313,4 +1311,5 @@ var allMarkers = [];
         e.preventDefault();
         var a = $(this).attr("href");
         window.open(a, "_blank")
-    }), G();S();
+    }), G()
+});
