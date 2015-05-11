@@ -329,10 +329,12 @@
                         a = '',
                         n = this.metadata.id,
                         t = '';
-                  /*  if ($('.active').removeClass('active'), $('.suggestion .merchantDetailsContainer').each(function() {
+                   if ($('.active').removeClass('active'), $('.suggestion .merchantDetailsContainer').each(function() {
                             return e = $(this).find('.sno').html(),
                                 e == n + 1 ? (a = $(this).closest('.suggestion'), $(this).closest('.suggestion').addClass('active'), t = $(this).closest('.merchantDetailsContainer').attr('id'), !1) : void 0
-                        }), 'block' != $('#locationDeatailsContainer').css('display') && k(this), 'block' != $('#locationDeatailsContainer').css('display') || $('.mainWrapper').hasClass('res_Small')) $('#suggestionList').scrollTo($('.active'), 500);
+                        }), 
+                        'block' != $('#locationDeatailsContainer').css('display') && k(this), 
+                        'block' != $('#locationDeatailsContainer').css('display') || $('.mainWrapper').hasClass('res_Small')) $('#suggestionList').scrollTo($('.active'), 500);
                     else if ($('.currcat').html() != atmname) {
                         k(this);
                         var r = da,
@@ -343,7 +345,7 @@
                                 language: na
                             });
                         l(r, 'post', !0, i, Go)
-                    } else {*/
+                    } else {
                         $('.active').removeClass('active'),
                             $(a).addClass('active');
                         var s,
