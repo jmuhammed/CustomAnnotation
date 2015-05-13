@@ -323,6 +323,7 @@ $("document").ready(function() {
             Na += 1,
             Xa += 1,
             Oa.push(initMarker),
+            allMarkers.push(initMarker),
             google.maps.event.addListener(initMarker, 'click', function() {
                if (o('rmaction', 'click_MapPin'), Fa !== this) {
                     var e,
