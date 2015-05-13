@@ -1,6 +1,6 @@
     var init = new google.maps.Map(document.getElementById('mapContainer'));
     var allMarkers = [];
-
+$("document").ready(function() {
     function e(e) {
         $('.mainWrapper').removeClass('res_Large res_Medium res_Small'),
             $('.mainWrapper').addClass(e)
@@ -2164,3 +2164,4 @@
         }),
         G(),
         S();
+});
