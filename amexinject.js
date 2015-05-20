@@ -1,9 +1,6 @@
 
 var allMarkers = [];
 
-$("document").ready(function() {
-    "use strict";
-
     function e(e) {
         $('.mainWrapper').removeClass('res_Large res_Medium res_Small'),
             $('.mainWrapper').addClass(e)
@@ -2166,6 +2163,5 @@ $("document").ready(function() {
             var a = $(this).attr('href');
             window.open(a, '_blank')
         }),
-        G()
-});
+        G();
 
